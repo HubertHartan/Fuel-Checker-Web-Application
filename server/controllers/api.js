@@ -28,4 +28,12 @@ apiRouter.get('/api/stations', (req, res) => {
     })
 })
 
+apiRouter.get('/api/stations/:stationcode', (req, res) => {
+    Station.find({
+        code: req.params.stationcode
+    }).then(result => {
+        res.json(result[0])
+    })
+})
+
 module.exports = apiRouter
