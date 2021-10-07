@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# COMP3120: Advanced Web Development
+## Assignment 2
+### Fuel Tracking Web Applciation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project contains both the frontend and backend code for our Fuel Tracking Web Application
 
-## Available Scripts
+This entire project was created as an assignment for the unit COMP3120: Advanced Web Development. The project was built using [React JS](https://reactjs.org/).
 
-In the project directory, you can run:
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Repository Structure
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+    TBD
+   
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Libraries
+| Package name                                  | Description                                                                                                                                                                                                                                   |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`react`](https://reactjs.org/)  | A JavaScript library for building user interfaces |
+| [`react-router-dom`](https://github.com/remix-run/react-router)     | React Library that allows for dynamic routing. |
+| [`react-dom`](https://reactjs.org/docs/react-dom.html)    | A package that provides DOM-specific methods that can be used at the top level of an app |
+| [`axios`](https://axios-http.com/)    | A simple promise based HTTP client for the browser and node.js |
+| [`react-markdown`](https://github.com/remarkjs/react-markdown)    | Markdown component for React using remark |
+| [`express`](http://expressjs.com/)    | A minimal and flexible Node.js web application framework |
+| [`cors`](https://github.com/expressjs/cors)    | A node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options. |
 
-### `yarn build`
+TBD
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Project Status
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+TBD
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+### Custom Components
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+TBD
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Screens
 
-## Learn More
+TBD
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Team Members
+Flynn Tesoriero
+Nipun Shrestha
+Trideep Lal Das
+Hubert Hartan
