@@ -43,7 +43,11 @@ TBD
 TBD
 
 ### Team Members
-Flynn Tesoriero
+
+[Flynn Tesoriero](https://github.com/Flynntes)
+
 Nipun Shrestha
-Trideep Lal Das
-Hubert Hartan
+
+[Trideep Lal Das](https://github.com/TrideepLD)
+
+[Hubert Hartan](https://github.com/HubertHartan)
