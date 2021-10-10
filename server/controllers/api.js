@@ -72,7 +72,9 @@ apiRouter.get('/api/map/geojson', (req, res) => {
             const stations = result.map(station => {
                 return {
                     lat: station.lat,
-                    lng: station.long
+                    lng: station.long,
+                    code: station.code,
+                    name: station.name,
                 }
             })
 
