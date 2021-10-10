@@ -1,4 +1,5 @@
 const express = require('express') 
+const GeoJSON = require('geojson')
 
 const Price = require("../models/prices")
 const Station = require("../models/stations")
@@ -62,6 +63,22 @@ apiRouter.get('/api/metrics/fuel/:fueltype', (req, res) => {
             range: max.price - min.price,
         })
     })
+})
+
+// Get geojson
+apiRouter.get('/api/map/geojson', (req, res) => {
+    Station.find({})
+        .then(result => {
+            const stations = result.map(station => {
+                return {
+                    lat: station.lat,
+                    lng: station.long
+                }
+            })
+
+            const json = GeoJSON.parse(stations, {Point: ['lat', 'lng']});
+            res.json(json)
+        })
 })
 
 module.exports = apiRouter
