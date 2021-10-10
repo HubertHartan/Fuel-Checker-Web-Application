@@ -10,8 +10,8 @@ import { DropletHalf } from 'react-bootstrap-icons'
 const Navigation = ({ }) => {
     return (
         <>
-            <Navbar bg="light">
-                <Container>
+            <Navbar bg="white" className="shadow-sm">
+                <Container className="py-2">
                     <Navbar.Brand href="#home">
                         <DropletHalf className="d-inline-block align-middle me-2 text-primary" />
                         <span>Fuel Checker</span>
