@@ -13,9 +13,18 @@ apiRouter.get('/api/prices', (req, res) => {
 })
 
 // Get prices for station
-apiRouter.get('/api/prices/:stationcode', (req, res) => {
+apiRouter.get('/api/prices/station/:stationcode', (req, res) => {
     Price.find({
         stationcode: req.params.stationcode
+    }).then(result => {
+        res.json(result)
+    })
+})
+
+// Get prices for fuel type
+apiRouter.get('/api/prices/fuel/:fueltype', (req, res) => {
+    Price.find({
+        fueltype: req.params.fueltype
     }).then(result => {
         res.json(result)
     })
@@ -28,11 +37,30 @@ apiRouter.get('/api/stations', (req, res) => {
     })
 })
 
+// Get station
 apiRouter.get('/api/stations/:stationcode', (req, res) => {
     Station.find({
         code: req.params.stationcode
     }).then(result => {
         res.json(result[0])
+    })
+})
+
+// Get fuel price metrics
+apiRouter.get('/api/metrics/fuel/:fueltype', (req, res) => {
+    Price.find({
+        fueltype: req.params.fueltype
+    }).then(prices => {
+        const average = prices.reduce((total, next) => total + next.price, 0) / prices.length;
+        const min = prices.reduce((prev, current) => (prev.price < current.price) ? prev : current);
+        const max = prices.reduce((prev, current) => (prev.price > current.price) ? prev : current);
+
+        res.json({
+            average,
+            min,
+            max,
+            range: max.price - min.price,
+        })
     })
 })
 
