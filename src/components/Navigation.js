@@ -3,11 +3,15 @@ import {
     Container,
     NavDropdown,
     Nav,
-    Button
+    Button,
+    Dropdown
 } from 'react-bootstrap'
 import { DropletHalf } from 'react-bootstrap-icons'
+import { useAuth0 } from "@auth0/auth0-react"
 
 const Navigation = ({ }) => {
+    const { user, isAuthenticated, isLoading, loginWithRedirect, logout } = useAuth0()
+
     return (
         <>
             <Navbar bg="white" className="shadow-sm">
@@ -30,8 +34,34 @@ const Navigation = ({ }) => {
                             </NavDropdown>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">Sign In</Nav.Link>
-                            <Button variant="primary">Sign Up</Button>
+                            {isLoading && 
+                                <div className="rounded-circle user-loading bg-light shadow-sm"></div>
+                            }
+
+                            {isAuthenticated && !isLoading &&
+                                <>
+                                    <Dropdown>
+                                        <Dropdown.Toggle variant="text" className="p-0 m-0 shadow-none">
+                                            <img src={user.picture} alt={user.name} className="rounded-circle shadow-sm" width="37px" />
+                                        </Dropdown.Toggle>
+
+                                        <Dropdown.Menu align="end">
+                                            <Dropdown.Header>Hey, {user.name}</Dropdown.Header>
+                                            <Dropdown.Item>Profile</Dropdown.Item>
+                                            <Dropdown.Item>Settings</Dropdown.Item>
+                                            <Dropdown.Divider />
+                                            <Dropdown.Item onClick={() => logout({ returnTo: window.location.origin })}>Log Out</Dropdown.Item>
+                                        </Dropdown.Menu>
+                                    </Dropdown>
+                                </>
+                            }
+                            
+                            {!isAuthenticated && !isLoading &&
+                                <>
+                                    <Nav.Link className="me-2" onClick={() => loginWithRedirect()}>Sign In</Nav.Link>
+                                    <Button variant="primary" onClick={() => loginWithRedirect()}>Sign Up</Button>
+                                </>
+                            }
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

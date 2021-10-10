@@ -6,6 +6,7 @@ import {
   Col,
   Dropdown
 } from 'react-bootstrap'
+import { useAuth0 } from "@auth0/auth0-react"
 
 import './sass/App.scss';
 
@@ -15,6 +16,8 @@ import MetricCard from './components/MetricCard'
 
 function App() {
   const baseUrl = 'http://localhost:3001/api'
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  
   const [stations, setStations] = useState([])
   const [metrics, setMetrics] = useState()
   const [fuelType, setFuelType] = useState('E10')
