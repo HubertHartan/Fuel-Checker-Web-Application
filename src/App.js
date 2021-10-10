@@ -16,6 +16,7 @@ import MetricCard from './components/MetricCard'
 function App() {
   const baseUrl = 'http://localhost:3001/api'
   const [stations, setStations] = useState([])
+  const [metrics, setMetrics] = useState()
   const [fuelType, setFuelType] = useState('E10')
 
   useEffect(() => {
@@ -27,6 +28,16 @@ function App() {
         console.error(error)
       })
   }, [])
+
+  useEffect(() => {
+    axios.get(`${baseUrl}/metrics/fuel/${fuelType}`)
+      .then(response => {
+        setMetrics(response.data)
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  }, [fuelType])
 
   return (
     <>
@@ -50,23 +61,20 @@ function App() {
                 </Dropdown.Menu>
               </Dropdown>
             </div>
-            {/* <Alert variant="success">
-              Hello and welcome
-            </Alert> */}
           </Col>
         </Row>
         <Row className="pb-3">
           <Col>
-            <MetricCard title="Average Price" figure="1.46" />
+            <MetricCard title="Average Price" figure={metrics?.average} />
           </Col>
           <Col>
-            <MetricCard title="Lowest Price" figure="1.14" />
+            <MetricCard title="Lowest Price" figure={metrics?.min?.price} />
           </Col>
           <Col>
-            <MetricCard title="Highest Price" figure="1.94" />
+            <MetricCard title="Highest Price" figure={metrics?.max?.price} />
           </Col>
           <Col>
-            <MetricCard title="Range" figure="0.44" />
+            <MetricCard title="Range" figure={metrics?.range} />
           </Col>
         </Row>
         <Row>
