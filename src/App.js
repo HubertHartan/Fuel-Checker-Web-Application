@@ -47,9 +47,13 @@ function App() {
         <Route path="/map">
           <Map />
         </Route>
-        <Route path="/">
+        <Route path="/stations">
           <Dashboard fuelType={fuelType} metrics={metrics} stations={stations} />
         </Route>
+        <Route path="/">
+          <div>home</div>
+        </Route>
+        
       </Switch>
     </>
   );

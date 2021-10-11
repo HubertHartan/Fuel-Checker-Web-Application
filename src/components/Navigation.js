@@ -30,6 +30,13 @@ const Navigation = ({ }) => {
                 <Nav.Link>Map</Nav.Link>
               </LinkContainer>
             </Nav>
+
+            <Nav className="me-auto">
+              <LinkContainer to="/stations">
+                <Nav.Link>Stations</Nav.Link>
+              </LinkContainer>
+            </Nav>
+
             <Nav>
               {isLoading &&
                 <div className="rounded-circle user-loading bg-light shadow-sm"></div>
