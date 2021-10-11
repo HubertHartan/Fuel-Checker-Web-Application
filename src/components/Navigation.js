@@ -29,9 +29,6 @@ const Navigation = ({ }) => {
               <LinkContainer to="/map">
                 <Nav.Link>Map</Nav.Link>
               </LinkContainer>
-            </Nav>
-
-            <Nav className="me-auto">
               <LinkContainer to="/stations">
                 <Nav.Link>Stations</Nav.Link>
               </LinkContainer>
