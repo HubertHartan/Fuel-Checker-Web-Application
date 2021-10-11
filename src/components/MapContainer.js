@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import MapGL, { Source, Layer } from 'react-map-gl';
 import { clusterLayer, clusterCountLayer, unclusteredPointLayer } from '../utils/Layers';
 
-const MAPBOX_TOKEN = process.env.MAPBOX_ACCESS_TOKEN;
+const MAPBOX_TOKEN = 'pk.eyJ1IjoiZmx5bm50ZXMiLCJhIjoiY2tneDAwZ2ZkMDE2azJ0bzM1MG15N3d1cyJ9.LHpIlA-UNOCFXjFucg2AQg';
 
 const MapContainer = () => {
   const [viewport, setViewport] = useState({
