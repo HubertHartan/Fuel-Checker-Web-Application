@@ -12,9 +12,9 @@ test('renders learn react link', () => {
 });
 
 describe("GET / ", () => {
-  test("Should get 200", async () => {
-    const response = await request(App).get("/");
-    expect(response.statusCode).toBe(200);
-    expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 10000);
-  });
+  test('get request returns JSON', async () => {
+    await api.get('/')
+            .expect(200)
+            .expect('Content-Type', /application\/json/)
+  })
 });
