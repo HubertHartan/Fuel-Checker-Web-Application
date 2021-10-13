@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     stationService.getStations()
       .then(response => {
-        setStations(response)
+        setStations([...response])
       })
       .catch(error => {
         console.error(error)
@@ -31,7 +31,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    stationService.getMetric()
+    stationService.getMetric(fuelType)
       .then(response => {
         setMetrics(response)
       })
