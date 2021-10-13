@@ -11,6 +11,7 @@
     "bcrypt": "^5.0.1",
     "bootstrap": "^5.1.1",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
@@ -36,7 +37,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "cross-env NODE_ENV=test jest --detectOpenHandles --verbose --coverage --testPathPattern server",
+    "testreact": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "nodemon server/server.js"
   },
@@ -59,6 +61,7 @@
     ]
   },
   "devDependencies": {
+    "@shelf/jest-mongodb": "^2.1.0",
     "jest": "^24.2.5"
   }
 }
