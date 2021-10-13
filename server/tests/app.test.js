@@ -25,8 +25,14 @@
 describe('api', () => {
 
     test('Expecting Status 200', async () => {
-        await api.get('/')
+        try {
+            await api.get('/')
             .expect(200)
+        } catch (error) {
+            console.log(error);
+        }
+        
+            
     })
 
     test('Simple test expecting page to be HTML', async () => {

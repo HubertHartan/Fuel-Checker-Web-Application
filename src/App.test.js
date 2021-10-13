@@ -1,29 +1,24 @@
 /**
- * @jest-environment node
+ * @jest-environment jsdom
  */
 
+import React from "react";
+import renderer from "react-test-renderer"; 
 import { render, screen } from '@testing-library/react';
-const mongoose = require('mongoose') 
-const supertest = require('supertest')
-const fs = require('fs')
-const request = require("supertest");
 import App from './App';
+import Dashboard from "./components/Dashboard"
 
 
-const api = supertest(App)
-
-// test('renders learn react link', () => {
-//   render(<App />);
-//   const linkElement = screen.getByText(/learn react/i);
-//   expect(linkElement).toBeInTheDocument();
-// });
-
-describe("GET / ", () => {
-
-  test('get request returns', async () => {
-    await api.get('/api')
-            .expect(200)
-            .expect('Content-Type', /application\/json/)
-})
-
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
 });
+
+test('snapshot test', () => {
+  const component = render(
+    <Dashboard fuelType={fuelType} metrics={metrics} stations={stations}/>
+  )
+  
+  expect(component).toMatchSnapshot()
+})
