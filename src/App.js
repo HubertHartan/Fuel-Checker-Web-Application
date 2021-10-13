@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
+
+import stationService from "./services/stations"
 
 import './sass/App.scss';
 
@@ -14,16 +15,15 @@ import Map from './components/Map'
 import Dashboard from './components/Dashboard'
 
 function App() {
-  const baseUrl = 'http://localhost:3001/api'
   
   const [stations, setStations] = useState([])
   const [metrics, setMetrics] = useState()
   const [fuelType, setFuelType] = useState('E10')
 
   useEffect(() => {
-    axios.get(`${baseUrl}/stations`)
+    stationService.getStations()
       .then(response => {
-        setStations([...response.data])
+        setStations(response)
       })
       .catch(error => {
         console.error(error)
@@ -31,9 +31,9 @@ function App() {
   }, [])
 
   useEffect(() => {
-    axios.get(`${baseUrl}/metrics/fuel/${fuelType}`)
+    stationService.getMetric()
       .then(response => {
-        setMetrics(response.data)
+        setMetrics(response)
       })
       .catch(error => {
         console.error(error)
