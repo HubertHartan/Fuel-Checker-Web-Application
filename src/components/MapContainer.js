@@ -3,6 +3,7 @@ import { useState, useRef ,useCallback} from 'react';
 import MapGL, { Source, Layer } from 'react-map-gl';
 import { clusterLayer, clusterCountLayer, unclusteredPointLayer } from '../utils/Layers';
 import Geocoder from 'react-map-gl-geocoder'
+
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZmx5bm50ZXMiLCJhIjoiY2tneDAwZ2ZkMDE2azJ0bzM1MG15N3d1cyJ9.LHpIlA-UNOCFXjFucg2AQg';
