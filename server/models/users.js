@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
     fuelStations: Array,
 })
 
-priceSchema.set('toJSON', {
+userSchema.set('toJSON', {
     transform: (document, returnedObject) => {
         delete returnedObject._id
         delete returnedObject.__v

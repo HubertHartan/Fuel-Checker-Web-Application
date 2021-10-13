@@ -13,7 +13,7 @@ userRouter.get('/api/user/:id', (req, res) => {
     })
 })
 
-userRouter.post('/api/user/add/:id', (req, res) => {
+userRouter.post('/api/user/add/:id', async(req, res) => {
     try {
         const user = await User.find({ id: req.params.id })
         if (user) {
@@ -36,7 +36,7 @@ userRouter.post('/api/user/add/:id', (req, res) => {
     }
 })
 
-userRouter.delete('/api/user/delete/:id', (req, res) => {
+userRouter.delete('/api/user/delete/:id', async(req, res) => {
     try {
         const fuelStaion = req.body.fuelStation
         const user = await User.find({id: req.params.id })
@@ -50,3 +50,4 @@ userRouter.delete('/api/user/delete/:id', (req, res) => {
     }
 })
 
+module.exports = userRouter
