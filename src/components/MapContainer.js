@@ -1,6 +1,9 @@
-import { useState, useRef } from 'react';
+import React from 'react'
+import { useState, useRef ,useCallback} from 'react';
 import MapGL, { Source, Layer } from 'react-map-gl';
 import { clusterLayer, clusterCountLayer, unclusteredPointLayer } from '../utils/Layers';
+import Geocoder from 'react-map-gl-geocoder'
+import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZmx5bm50ZXMiLCJhIjoiY2tneDAwZ2ZkMDE2azJ0bzM1MG15N3d1cyJ9.LHpIlA-UNOCFXjFucg2AQg';
 
@@ -16,26 +19,30 @@ const MapContainer = () => {
   const mapRef = useRef(null);
 
   // TODO: Implement onclick handler
-  const onClick = event => {
-    const feature = event.features[0];
-    const stationCode = feature.properties.code;
-    const mapboxSource = mapRef.current.getMap().getSource('stations');
+  // const onClick = event => {
+  //   const feature = event.features[0];
+  //   const stationCode = feature.properties.code;
+  //   const mapboxSource = mapRef.current.getMap().getSource('stations');
 
-    mapboxSource.getClusterExpansionZoom(stationCode, (err, zoom) => {
-      if (err) {
-        return;
-      }
+  //   mapboxSource.getClusterExpansionZoom(stationCode, (err, zoom) => {
+  //     if (err) {
+  //       return;
+  //     }
 
-      setViewport({
-        ...viewport,
-        longitude: feature.geometry.coordinates[0],
-        latitude: feature.geometry.coordinates[1],
-        zoom,
-        transitionDuration: 500
-      });
-    });
-  };
+  //     setViewport({
+  //       ...viewport,
+  //       longitude: feature.geometry.coordinates[0],
+  //       latitude: feature.geometry.coordinates[1],
+  //       zoom,
+  //       transitionDuration: 500
+  //     });
+  //   });
+  // };
 
+  const handleViewportChange = useCallback(
+    (newViewport) => setViewport(newViewport),
+    []
+  );
   return (
     <>
       <MapGL
@@ -46,7 +53,7 @@ const MapContainer = () => {
         onViewportChange={setViewport}
         mapboxApiAccessToken={MAPBOX_TOKEN}
         interactiveLayerIds={[clusterLayer.id]}
-        onClick={onClick}
+        // onClick={onClick}
         ref={mapRef}
       >
         <Source
@@ -61,6 +68,12 @@ const MapContainer = () => {
           <Layer {...clusterCountLayer} />
           <Layer {...unclusteredPointLayer} />
         </Source>
+          <Geocoder
+            mapRef={mapRef}
+            onViewportChange={handleViewportChange}
+            mapboxApiAccessToken={MAPBOX_TOKEN}
+            position="top-right"
+          />
       </MapGL>
     </>
   );
