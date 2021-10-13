@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 
 const apiRouter = require("./controllers/api")
 const fuelApiController = require("./controllers/fuelApi")
+const userRouter =  require("./controllers/userApi")
 const middleware = require("./utils/middleware")
 
 const app = express()
@@ -16,6 +17,7 @@ app.use(express.json())
 app.use(middleware.requestLogger)
 app.use(express.static('build'))
 app.use(apiRouter)
+app.use(userRouter)
 app.use(middleware.errorMiddleware)
 
 const mongoURL = process.env.MONGODB_URI
