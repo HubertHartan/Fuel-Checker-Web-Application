@@ -8,9 +8,9 @@ import {
 
 // Components
 import MetricCard from './MetricCard'
-import StationTable from './StationTable'
 
-const Dashboard = ({ fuelType, metrics, stations }) => {
+
+const Dashboard = ({ fuelType, metrics}) => {
 
   return (
     <>
@@ -19,6 +19,7 @@ const Dashboard = ({ fuelType, metrics, stations }) => {
           <Col>
             <div className="d-flex justify-content-between align-items-center">
               <h2 className="fw-bold">Dashboard</h2>
+
               <Dropdown>
                 <Dropdown.Toggle variant="text" id="fuelSelect">
                   <b>Fuel:</b> {fuelType}
@@ -47,11 +48,6 @@ const Dashboard = ({ fuelType, metrics, stations }) => {
           </Col>
           <Col>
             <MetricCard title="Range" figure={metrics?.range} />
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <StationTable stations={stations} />
           </Col>
         </Row>
       </Container>

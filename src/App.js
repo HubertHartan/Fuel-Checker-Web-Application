@@ -13,7 +13,7 @@ import './sass/App.scss';
 import Navigation from './components/Navigation'
 import Map from './components/Map'
 import Dashboard from './components/Dashboard'
-
+import StationTable from './components/StationTable'
 function App() {
   
   const [stations, setStations] = useState([])
@@ -48,10 +48,10 @@ function App() {
           <Map />
         </Route>
         <Route path="/stations">
-          <Dashboard fuelType={fuelType} metrics={metrics} stations={stations} />
+          <StationTable stations={stations} />
         </Route>
         <Route path="/">
-          <div>home</div>
+          <Dashboard fuelType={fuelType} metrics={metrics} stations={stations} />
         </Route>
         
       </Switch>
