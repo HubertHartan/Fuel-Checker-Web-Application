@@ -18,7 +18,7 @@ const Navigation = ({ }) => {
     <>
       <Navbar bg="white" className="shadow-sm">
         <Container className="py-2">
-          <LinkContainer to="/">
+          <LinkContainer to="/" exact>
             <Navbar.Brand>
               <DropletHalf className="d-inline-block align-middle me-2 text-primary" />
               <span>Fuel Checker</span>
@@ -27,6 +27,9 @@ const Navigation = ({ }) => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
+              <LinkContainer to="/" exact>
+                <Nav.Link>Dashboard</Nav.Link>
+              </LinkContainer>
               <LinkContainer to="/map">
                 <Nav.Link>Map</Nav.Link>
               </LinkContainer>
