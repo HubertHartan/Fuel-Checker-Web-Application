@@ -8,11 +8,21 @@ import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZmx5bm50ZXMiLCJhIjoiY2tneDAwZ2ZkMDE2azJ0bzM1MG15N3d1cyJ9.LHpIlA-UNOCFXjFucg2AQg';
 
-const MapContainer = () => {
+const MapContainer = ({initialLocation}) => {
+  let lat = -32.924;
+  let long = 150.104;
+  let zoom = 4.5;
+
+  if (initialLocation?.lat && initialLocation?.long) {
+    lat = initialLocation.lat;
+    long = initialLocation.long;
+    zoom = 12;
+  }
+
   const [viewport, setViewport] = useState({
-    latitude: -32.924,
-    longitude: 150.104,
-    zoom: 4.5,
+    latitude: lat,
+    longitude: long,
+    zoom: zoom,
     bearing: 0,
     pitch: 0
   });

@@ -5,15 +5,49 @@ import {
   Col,
   Dropdown,
 } from 'react-bootstrap'
+import { useHistory } from "react-router-dom"
 
 // Components
 import MetricCard from './MetricCard'
 
 
-const Dashboard = ({ fuelType, metrics}) => {
+const Dashboard = ({ fuelType, metrics }) => {
+  const history = useHistory();
+
+  const getGeoLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        history.push("/map", {
+          lat: position.coords.latitude,
+          long: position.coords.longitude,
+        });
+      });
+    } else {
+      console.log("Couldn't get browser geolocation")
+    }
+  }
 
   return (
     <>
+      <Container fluid className="welcome-hero">
+        <Row className="pb-3 justify-content-center align-items-center">
+          <Col xl="4" lg="5" sm="8" className="py-5">
+            <div className="rounded text-center text-white py-5">
+              <h1 className="fw-bold">Find the cheapest fuel for your vehicle.</h1>
+              <span>Use your location or enter your suburb below.</span>
+              <form action="" className="mt-3">
+                <div className="input-group">
+                  <input type="text" placeholder="Search location" className="form-control rounded" />
+                  <span className="input-group-btn ms-2">
+                    <input type="submit" value="Search" className="btn btn-primary" data-disable-with="Search" />
+                  </span>
+                </div>
+              </form>
+              <button onClick={() => getGeoLocation()} className="btn btn-transparent text-white">Use my location</button>
+            </div>
+          </Col>
+        </Row>
+      </Container>
       <Container className="py-4 mt-2">
         <Row className="pb-3">
           <Col>
