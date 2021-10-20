@@ -30,9 +30,7 @@ describe('api', () => {
             .expect(200)
         } catch (error) {
             console.log(error);
-        }
-        
-            
+        }  
     })
 
     test('Simple test expecting page to be HTML', async () => {
