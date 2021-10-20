@@ -49,3 +49,19 @@ test('MetricCard snapshot test', () => {
   
   expect(component).toMatchSnapshot()
 })
+
+test('Navigation snapshot test', () => {
+  const component = render(
+    <Navigation/>
+  )
+  
+  expect(component).toMatchSnapshot()
+})
+
+test('FuelScreen snapshot test', () => {
+  const component = render(
+    <FuelScreen/>
+  )
+  
+  expect(component).toMatchSnapshot()
+})
