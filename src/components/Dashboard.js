@@ -17,7 +17,6 @@ const Dashboard = ({ fuelType, metrics }) => {
   const getGeoLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        console.log(position.coords.latitude, position.coords.longitude);
         history.push("/map", {
           lat: position.coords.latitude,
           long: position.coords.longitude,
