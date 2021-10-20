@@ -9,7 +9,7 @@
  
 jest.mock('axios')
 
-describe('station tests', () => {
+describe('api', () => {
 
     test('Expecting Status 200', async () => {
         try {
@@ -20,4 +20,4 @@ describe('station tests', () => {
         }  
     })
 
-}
+})
