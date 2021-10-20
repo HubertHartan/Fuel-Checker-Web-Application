@@ -5,16 +5,23 @@ import {
   Col,
   Dropdown,
 } from 'react-bootstrap'
+import { useHistory } from "react-router-dom"
 
 // Components
 import MetricCard from './MetricCard'
 
 
 const Dashboard = ({ fuelType, metrics }) => {
+  const history = useHistory();
+
   const getGeoLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         console.log(position.coords.latitude, position.coords.longitude);
+        history.push("/map", {
+          lat: position.coords.latitude,
+          long: position.coords.longitude,
+        });
       });
     } else {
       console.log("Couldn't get browser geolocation")
