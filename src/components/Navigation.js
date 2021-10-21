@@ -36,6 +36,9 @@ const Navigation = ({ }) => {
               <LinkContainer to="/stations">
                 <Nav.Link>Stations</Nav.Link>
               </LinkContainer>
+              <LinkContainer to="/trends">
+                <Nav.Link>Fuel Trends</Nav.Link>
+              </LinkContainer>
             </Nav>
 
             <Nav>
