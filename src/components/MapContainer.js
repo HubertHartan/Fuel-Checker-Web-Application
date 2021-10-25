@@ -1,17 +1,19 @@
 import React from 'react'
-import { useState, useRef ,useCallback} from 'react';
-import MapGL, { Source, Layer } from 'react-map-gl';
+import { useState, useRef ,useCallback,useEffect} from 'react';
+import MapGL, { Source, Layer , Marker} from 'react-map-gl';
 import { clusterLayer, clusterCountLayer, unclusteredPointLayer } from '../utils/Layers';
 import Geocoder from 'react-map-gl-geocoder'
-
+import { useAuth0 } from "@auth0/auth0-react"
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZmx5bm50ZXMiLCJhIjoiY2tneDAwZ2ZkMDE2azJ0bzM1MG15N3d1cyJ9.LHpIlA-UNOCFXjFucg2AQg';
 
-const MapContainer = ({initialLocation}) => {
+const MapContainer = ({initialLocation , markers}) => {
+  const { isAuthenticated } = useAuth0()
   let lat = -32.924;
   let long = 150.104;
   let zoom = 4.5;
+
 
   if (initialLocation?.lat && initialLocation?.long) {
     lat = initialLocation.lat;
@@ -54,6 +56,8 @@ const MapContainer = ({initialLocation}) => {
     (newViewport) => setViewport(newViewport),
     []
   );
+
+
   return (
     <>
       <MapGL
@@ -78,13 +82,23 @@ const MapContainer = ({initialLocation}) => {
           <Layer {...clusterLayer} />
           <Layer {...clusterCountLayer} />
           <Layer {...unclusteredPointLayer} />
+          { (isAuthenticated && (markers !== null) && (markers !== undefined) )?
+            (markers.fuelStations.map(station => (
+              <Marker key={station.code} longitude={station.long} latitude={station.lat} >
+                <img src="pin.png" />
+              </Marker>)))
+            
+            : null
+      
+          }
         </Source>
           <Geocoder
             mapRef={mapRef}
             onViewportChange={handleViewportChange}
             mapboxApiAccessToken={MAPBOX_TOKEN}
             position="top-right"
-          />
+        />
+    
       </MapGL>
     </>
   );
