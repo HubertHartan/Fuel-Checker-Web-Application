@@ -5,20 +5,10 @@ import {
   Route,
 } from "react-router-dom";
 
-import { LineChart, 
-         Line,
-         CartesianGrid,
-         XAxis, 
-         YAxis,
-         Tooltip  } from 'recharts';
-
 import stationService from "./services/stations"
 
-import {
-  Container
-} from 'react-bootstrap'
 
-
+//Customisation
 import './sass/App.scss';
 
 // Components
@@ -26,6 +16,10 @@ import Navigation from './components/Navigation'
 import Map from './components/Map'
 import Dashboard from './components/Dashboard'
 import StationTable from './components/StationTable'
+
+// Pages
+import GraphPage from './pages/GraphPage';
+
 function App() {
   
   const [stations, setStations] = useState([])
@@ -341,28 +335,21 @@ function App() {
     <>
       <Navigation />
       <Switch>
+          
         <Route path="/map">
-          <Map />
+            <Map />
         </Route>
+
         <Route path="/stations">
-          <StationTable stations={stations} />
+            <StationTable stations={stations} />
         </Route>
         
         <Route path="/trends">
-
-          <Container className="main-graph">
-          <LineChart width={1200} height={600} data={sampleData}>
-            <Line type="monotone" dataKey="price" stroke="#8884d8" />
-            <CartesianGrid stroke="#ccc" />
-            <XAxis dataKey="lastupdated" />
-            <YAxis />
-            <Tooltip/>
-          </LineChart>
-          </Container>
+            <GraphPage data={sampleData}/>   
         </Route>
 
         <Route path="/">
-          <Dashboard fuelType={fuelType} metrics={metrics}/>
+            <Dashboard fuelType={fuelType} metrics={metrics}/>
         </Route>
         
       </Switch>
