@@ -46,7 +46,7 @@ TBD
 
 [Flynn Tesoriero](https://github.com/Flynntes)
 
-Nipun Shrestha
+[Nipun Shrestha](https://github.com/nipunshrestha)
 
 [Trideep Lal Das](https://github.com/TrideepLD)
 
