@@ -6,9 +6,10 @@
   <img width="500px" src="public/fuel.png">
 </p>
 
-This project contains both the frontend and backend code for our Fuel Tracking Web Application
+A Web Application that allows users of NSW to view fuel prices near their area!
 
-This entire project was created as an assignment for the unit COMP3120: Advanced Web Development. The project was built using [React JS](https://reactjs.org/).
+
+This project contains both the frontend and backend code for our Fuel Tracking Web Application. This entire project was created as an assignment for the unit COMP3120: Advanced Web Development. The project was built using [React JS](https://reactjs.org/).
 
 
 
@@ -36,7 +37,7 @@ TBD
 
 ### Project Status
 
-In progress
+The project is currently under development. Deployment of the web application will be done shortly.
 
 ### Custom Components
 
