@@ -6,6 +6,7 @@
     "@auth0/auth0-react": "^1.8.0",
     "@babel/preset-env": "^7.15.8",
     "@babel/preset-react": "^7.14.5",
+    "@craco/craco": "^6.4.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -40,11 +41,11 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "craco start",
+    "build": "craco build",
     "test": "cross-env NODE_ENV=test jest --detectOpenHandles --verbose --coverage --testPathPattern server",
-    "testreact": "react-scripts test",
-    "eject": "react-scripts eject",
+    "testreact": "craco test",
+    "eject": "craco eject",
     "dev": "nodemon server/server.js"
   },
   "proxy": "http://localhost:3001",
