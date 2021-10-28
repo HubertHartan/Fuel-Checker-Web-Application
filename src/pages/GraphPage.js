@@ -25,6 +25,7 @@ const GraphPage = ({data}) =>{
             </Row>
 
             <Row>
+                
                 <Col md="4" className="mb-4">
                     <Card className="border-0 shadow-sm">
                         <Card.Body>
@@ -42,6 +43,7 @@ const GraphPage = ({data}) =>{
                         </Card.Body>
                     </Card>
                 </Col>
+
                 <Col md="4" className="mb-4">
                     <Card className="border-0 shadow-sm">
                         <Card.Body>
@@ -59,6 +61,7 @@ const GraphPage = ({data}) =>{
                         </Card.Body>
                     </Card>
                 </Col>
+
                 <Col md="4" className="mb-4">
                     <Card className="border-0 shadow-sm">
                         <Card.Body>
@@ -76,6 +79,7 @@ const GraphPage = ({data}) =>{
                         </Card.Body>
                     </Card>
                 </Col>
+
                 <Col md="4" className="mb-4">
                     <Card className="border-0 shadow-sm">
                         <Card.Body>
@@ -93,6 +97,7 @@ const GraphPage = ({data}) =>{
                         </Card.Body>
                     </Card>
                 </Col>
+
                 <Col md="4" className="mb-4">
                     <Card className="border-0 shadow-sm">
                         <Card.Body>
@@ -110,6 +115,7 @@ const GraphPage = ({data}) =>{
                         </Card.Body>
                     </Card>
                 </Col>
+
             </Row>
         </Container>
     )
