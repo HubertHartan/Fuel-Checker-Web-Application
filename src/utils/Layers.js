@@ -21,7 +21,7 @@ export const clusterCountLayer = {
   }
 }
 
-export const unclusteredPointLayer = {
+export const stationLayer = {
   id: 'station',
   type: 'circle',
   source: 'stations',

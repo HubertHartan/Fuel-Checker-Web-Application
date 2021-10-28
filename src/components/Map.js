@@ -12,10 +12,11 @@ import userService from '../services/user'
 import MapContainer from './MapContainer'
 import StationList from './StationList'
 
-const Map = ({ stations }) => {
+const Map = () => {
   const location = useLocation()
   const { user, isAuthenticated } = useAuth0()
-  const [markers, setMarkers] = useState()
+  const [ markers, setMarkers ] = useState()
+  const [ visibleStations, setVisibleStations ] = useState()
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -30,10 +31,10 @@ const Map = ({ stations }) => {
       <Container className="g-0 full-height" fluid>
         <Row className="g-0 full-height">
           <Col className="full-height overflow-scroll" md="3" xl="2">
-            <StationList stations={stations} />
+            <StationList stations={visibleStations} />
           </Col>
           <Col>
-            <MapContainer initialLocation={location?.state} markers={markers} />
+            <MapContainer initialLocation={location?.state} markers={markers} setVisibleStations={setVisibleStations} />
           </Col>
         </Row>
       </Container>

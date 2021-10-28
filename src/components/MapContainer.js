@@ -1,14 +1,14 @@
 import React from 'react'
 import { useState, useRef, useCallback } from 'react'
 import MapGL, { Source, Layer, Marker, Popup } from 'react-map-gl'
-import { clusterLayer, clusterCountLayer, unclusteredPointLayer } from '../utils/Layers'
+import { clusterLayer, clusterCountLayer, stationLayer } from '../utils/Layers'
 import Geocoder from 'react-map-gl-geocoder'
 import { useAuth0 } from '@auth0/auth0-react'
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZmx5bm50ZXMiLCJhIjoiY2tneDAwZ2ZkMDE2azJ0bzM1MG15N3d1cyJ9.LHpIlA-UNOCFXjFucg2AQg'
 
-const MapContainer = ({ initialLocation, markers }) => {
+const MapContainer = ({ initialLocation, markers, setVisibleStations }) => {
   const { isAuthenticated } = useAuth0()
   let lat = -32.924
   let long = 150.104
@@ -32,11 +32,57 @@ const MapContainer = ({ initialLocation, markers }) => {
   const mapRef = useRef(null)
   const [popupInfo, setPopupInfo] = useState(null)
 
-  // mapRef.on('mouseenter', 'unclustered-point', function (e) {
-  //   console.log(e)
-  // })
+  const onMouseUp = async () => {
+    let clusters = []
+    let features = []
 
-  // TODO: Implement onclick handler
+    const mapboxSource = mapRef.current.getMap()
+    const elementsInFrame = mapboxSource.queryRenderedFeatures({ layers: ['station', 'clusters'] })
+    const clusterSource = mapboxSource.getSource('stations')
+
+    // Loop through each feature in the frame
+    for (let i = 0; i < elementsInFrame.length; i++) {
+      const f = elementsInFrame[i]
+      if (f.properties.cluster) {
+        // If the feature is a cluster, add it to the cluster list for processing later
+        const clusterID = f.properties.cluster_id
+        if (!clusters.includes(clusterID)) {
+          clusters.push(clusterID)
+        }
+      } else {
+        // If the feature is a station, add it to the list
+        const feature = f.properties
+        if (!features.some(f => f.code === feature.code)) {
+          features.push(feature)
+        }
+      }
+    }
+
+    // Loop through each cluster and get the features contained within
+    for (let i = 0; i < clusters.length; i++) {
+      const clusterFeatures = await getClusterLeaves(clusterSource, clusters[i])
+      for (let i = 0; i < clusterFeatures.length; i++) {
+        const cf = clusterFeatures[i].properties
+        if (!features.some(f => f.code === cf.code)) {
+          features.push(cf)
+        }
+      }
+    }
+
+    setVisibleStations(features)
+  }
+
+  // Get the features inside a cluster
+  // Wrapped in a promise
+  const getClusterLeaves = async (clusterSource, clusterID) => {
+    return new Promise((resolve, reject) => {
+      clusterSource.getClusterLeaves(clusterID, 10000, 0, (err, clusterFeatures) => {
+        if (err) reject(err)
+        else resolve(clusterFeatures)
+      })
+    })
+  }
+  
   const onClick = event => {
     const feature = event.features[0]
     if (feature) {
@@ -73,8 +119,7 @@ const MapContainer = ({ initialLocation, markers }) => {
     (newViewport) => setViewport(newViewport),
     []
   )
-
-
+  
   return (
     <>
       <MapGL
@@ -82,10 +127,11 @@ const MapContainer = ({ initialLocation, markers }) => {
         width="100%"
         height="100%"
         mapStyle="mapbox://styles/mapbox/dark-v9"
-        onViewportChange={setViewport}
         mapboxApiAccessToken={MAPBOX_TOKEN}
-        interactiveLayerIds={[clusterLayer.id, unclusteredPointLayer.id]}
+        interactiveLayerIds={[clusterLayer.id, stationLayer.id]}
+        onViewportChange={setViewport}
         onClick={onClick}
+        onMouseUp={onMouseUp}
         ref={mapRef}
       >
         <Source
@@ -98,7 +144,7 @@ const MapContainer = ({ initialLocation, markers }) => {
         >
           <Layer {...clusterLayer} />
           <Layer {...clusterCountLayer} />
-          <Layer {...unclusteredPointLayer} />
+          <Layer {...stationLayer} />
 
           {popupInfo && (
             <Popup
