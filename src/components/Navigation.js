@@ -8,7 +8,7 @@ import {
   Dropdown
 } from 'react-bootstrap'
 import { DropletHalf } from 'react-bootstrap-icons'
-import { useAuth0 } from "@auth0/auth0-react"
+import { useAuth0 } from '@auth0/auth0-react'
 import { LinkContainer } from 'react-router-bootstrap'
 
 const Navigation = ({ }) => {

@@ -13,5 +13,5 @@ const getMetric = (fuelType) => {
 }
 
 
-const service = {getStations, getMetric};
+const service = {getStations, getMetric}
 export default service

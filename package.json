@@ -46,7 +46,8 @@
     "test": "cross-env NODE_ENV=test jest --detectOpenHandles --verbose --coverage --testPathPattern server",
     "testreact": "craco test",
     "eject": "craco eject",
-    "dev": "nodemon server/server.js"
+    "dev": "nodemon server/server.js",
+    "lint": "eslint ."
   },
   "proxy": "http://localhost:3001",
   "eslintConfig": {
@@ -69,6 +70,8 @@
   },
   "devDependencies": {
     "@shelf/jest-mongodb": "^2.1.0",
-    "jest": "26.6.0"
+    "jest": "26.6.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-react": "^7.25.1"
   }
 }

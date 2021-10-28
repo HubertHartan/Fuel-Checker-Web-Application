@@ -1,24 +1,24 @@
 import React from 'react'
-import { useState, useRef ,useCallback,useEffect} from 'react';
-import MapGL, { Source, Layer , Marker} from 'react-map-gl';
-import { clusterLayer, clusterCountLayer, unclusteredPointLayer } from '../utils/Layers';
+import { useState, useRef ,useCallback,useEffect} from 'react'
+import MapGL, { Source, Layer , Marker} from 'react-map-gl'
+import { clusterLayer, clusterCountLayer, unclusteredPointLayer } from '../utils/Layers'
 import Geocoder from 'react-map-gl-geocoder'
-import { useAuth0 } from "@auth0/auth0-react"
+import { useAuth0 } from '@auth0/auth0-react'
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
-const MAPBOX_TOKEN = 'pk.eyJ1IjoiZmx5bm50ZXMiLCJhIjoiY2tneDAwZ2ZkMDE2azJ0bzM1MG15N3d1cyJ9.LHpIlA-UNOCFXjFucg2AQg';
+const MAPBOX_TOKEN = 'pk.eyJ1IjoiZmx5bm50ZXMiLCJhIjoiY2tneDAwZ2ZkMDE2azJ0bzM1MG15N3d1cyJ9.LHpIlA-UNOCFXjFucg2AQg'
 
 const MapContainer = ({initialLocation , markers}) => {
   const { isAuthenticated } = useAuth0()
-  let lat = -32.924;
-  let long = 150.104;
-  let zoom = 4.5;
+  let lat = -32.924
+  let long = 150.104
+  let zoom = 4.5
 
 
   if (initialLocation?.lat && initialLocation?.long) {
-    lat = initialLocation.lat;
-    long = initialLocation.long;
-    zoom = 12;
+    lat = initialLocation.lat
+    long = initialLocation.long
+    zoom = 12
   }
 
   const [viewport, setViewport] = useState({
@@ -27,9 +27,9 @@ const MapContainer = ({initialLocation , markers}) => {
     zoom: zoom,
     bearing: 0,
     pitch: 0
-  });
+  })
 
-  const mapRef = useRef(null);
+  const mapRef = useRef(null)
 
   // TODO: Implement onclick handler
   // const onClick = event => {
@@ -55,7 +55,7 @@ const MapContainer = ({initialLocation , markers}) => {
   const handleViewportChange = useCallback(
     (newViewport) => setViewport(newViewport),
     []
-  );
+  )
 
 
   return (
@@ -92,16 +92,16 @@ const MapContainer = ({initialLocation , markers}) => {
       
           }
         </Source>
-          <Geocoder
-            mapRef={mapRef}
-            onViewportChange={handleViewportChange}
-            mapboxApiAccessToken={MAPBOX_TOKEN}
-            position="top-right"
+        <Geocoder
+          mapRef={mapRef}
+          onViewportChange={handleViewportChange}
+          mapboxApiAccessToken={MAPBOX_TOKEN}
+          position="top-right"
         />
     
       </MapGL>
     </>
-  );
+  )
 }
 
 export default MapContainer
