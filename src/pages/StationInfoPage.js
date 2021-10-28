@@ -36,7 +36,8 @@ const StationInfoPage = () => {
     <Container className="py-4">
       <Row>
         <Col>
-          <h2 className="fw-bold mb-4">{station?.name}</h2>
+          <h2 className="fw-bold">{station?.name}</h2>
+          <p className="text-muted mb-4">{station?.address}</p>
         </Col>
       </Row>
 
