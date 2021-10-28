@@ -8,13 +8,12 @@ const StationListItem = ({ station }) => {
 
   return (
     <>
-      <ListGroup.Item as="li" className="d-flex justify-content-between align-items-start">
+      <ListGroup.Item as="li" className="d-flex justify-content-between align-items-start bg-transparent">
         <div className="ms-2 me-auto">
-          <div className="fw-bold">Subheading</div>
-          {station.name}
+          <div className="fw-bold">{station.name}</div>
         </div>
         <Badge variant="primary" pill>
-          14
+          $1.34
         </Badge>
       </ListGroup.Item>
     </>

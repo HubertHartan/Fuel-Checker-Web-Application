@@ -23,7 +23,7 @@ const StationList = ({ stations }) => {
 
   return (
     <>
-      <ListGroup as="ol" numbered variant="flush">
+      <ListGroup as="ol" variant="flush">
         {stationListItems}
       </ListGroup>
     </>
