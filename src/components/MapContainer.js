@@ -63,6 +63,7 @@ const MapContainer = ({ initialLocation, markers, setVisibleStations }) => {
 
     // Exit if there are too many points
     if (pointCount > 500) {
+      setVisibleStations(null)
       return
     }
 

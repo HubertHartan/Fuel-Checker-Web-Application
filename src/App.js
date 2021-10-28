@@ -19,6 +19,7 @@ import StationTable from './components/StationTable'
 
 // Pages
 import GraphPage from './pages/GraphPage'
+import StationInfoPage from './pages/StationInfoPage'
 
 function App() {
   
@@ -338,6 +339,10 @@ function App() {
           
         <Route path="/map">
           <Map stations={stations} />
+        </Route>
+
+        <Route path="/stations/:code">
+          <StationInfoPage stations={stations} />
         </Route>
 
         <Route path="/stations">
