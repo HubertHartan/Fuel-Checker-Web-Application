@@ -13,15 +13,6 @@ apiRouter.get('/api/prices', (req, res) => {
   })
 })
 
-// Get prices for station
-apiRouter.get('/api/prices/station/:stationcode', (req, res) => {
-  Price.find({
-    stationcode: req.params.stationcode
-  }).then(result => {
-    res.json(result)
-  })
-})
-
 // Get prices for fuel type
 apiRouter.get('/api/prices/fuel/:fueltype', (req, res) => {
   Price.find({
@@ -40,9 +31,21 @@ apiRouter.get('/api/stations', (req, res) => {
 
 // Get station
 apiRouter.get('/api/stations/:stationcode', (req, res) => {
-  Station.find({
-    code: req.params.stationcode
-  }).then(result => {
+  Station.aggregate(
+    [
+      {
+        $match: {code: req.params.stationcode}
+      },
+      {
+        $lookup: {
+          from: "prices",
+          localField: "code",
+          foreignField: "stationcode",
+          as: "prices"
+        }
+      }
+    ]
+  ).then(result => {
     res.json(result[0])
   })
 })
@@ -77,6 +80,7 @@ apiRouter.get('/api/map/geojson', (req, res) => {
           longitude: station.long,
           code: station.code,
           name: station.name,
+          address: station.address,
         }
       })
 
