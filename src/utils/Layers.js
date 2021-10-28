@@ -22,13 +22,13 @@ export const clusterCountLayer = {
 }
 
 export const unclusteredPointLayer = {
-  id: 'unclustered-point',
+  id: 'station',
   type: 'circle',
   source: 'stations',
   filter: ['!', ['has', 'point_count']],
   paint: {
     'circle-color': '#11b4da',
-    'circle-radius': 4,
+    'circle-radius': 10,
     'circle-stroke-width': 1,
     'circle-stroke-color': '#fff'
   }
