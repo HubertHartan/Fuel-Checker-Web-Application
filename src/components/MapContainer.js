@@ -8,7 +8,7 @@ import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZmx5bm50ZXMiLCJhIjoiY2tneDAwZ2ZkMDE2azJ0bzM1MG15N3d1cyJ9.LHpIlA-UNOCFXjFucg2AQg'
 
-const MapContainer = ({ initialLocation, markers, setVisibleStations }) => {
+const MapContainer = ({ initialLocation, markers, setVisibleStations, changeStationInfo }) => {
   const { isAuthenticated } = useAuth0()
   let lat = -32.924
   let long = 150.104
@@ -106,9 +106,11 @@ const MapContainer = ({ initialLocation, markers, setVisibleStations }) => {
         })
       } else {
         // User clicked on a station
+        console.log(feature.properties)
         setPopupInfo({
           longitude: feature.properties.longitude,
-          latitude: feature.properties.latitude
+          latitude: feature.properties.latitude,
+          name: feature.properties.name
         })
 
         setViewport({
@@ -118,9 +120,12 @@ const MapContainer = ({ initialLocation, markers, setVisibleStations }) => {
           zoom: 15,
           transitionDuration: 1000
         })
+
+        changeStationInfo(feature.properties.code)
       }
     } else {
       setPopupInfo(null)
+      changeStationInfo(null)
     }
   }
 
@@ -159,13 +164,15 @@ const MapContainer = ({ initialLocation, markers, setVisibleStations }) => {
           {popupInfo && (
             <Popup
               tipSize={5}
-              anchor="top"
+              anchor="bottom"
               longitude={popupInfo.longitude}
               latitude={popupInfo.latitude}
               closeOnClick={false}
               onClose={setPopupInfo}
+              offsetTop={-15}
+              closeButton={false}
             >
-              Station
+              {popupInfo?.name}
             </Popup>
           )}
 

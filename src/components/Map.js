@@ -8,15 +8,18 @@ import { useLocation } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 
 import userService from '../services/user'
+import stationService from '../services/stations'
 
 import MapContainer from './MapContainer'
 import StationList from './StationList'
+import StationInfoCard from './StationInfoCard'
 
 const Map = () => {
   const location = useLocation()
   const { user, isAuthenticated } = useAuth0()
-  const [ markers, setMarkers ] = useState()
-  const [ visibleStations, setVisibleStations ] = useState()
+  const [markers, setMarkers] = useState()
+  const [visibleStations, setVisibleStations] = useState()
+  const [stationInfo, setStationInfo] = useState()
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -26,6 +29,19 @@ const Map = () => {
         })
     }
   }, [])
+
+  const changeStationInfo = (code) => {
+    if (stationInfo?.code == code) return
+
+    stationService.getStation(code)
+      .then(response => {
+        setStationInfo(response)
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  }
+
   return (
     <>
       <Container className="g-0 full-height" fluid>
@@ -34,7 +50,10 @@ const Map = () => {
             <StationList stations={visibleStations} />
           </Col>
           <Col>
-            <MapContainer initialLocation={location?.state} markers={markers} setVisibleStations={setVisibleStations} />
+            {stationInfo &&
+              <StationInfoCard stationInfo={stationInfo} />
+            }
+            <MapContainer initialLocation={location?.state} markers={markers} setVisibleStations={setVisibleStations} changeStationInfo={changeStationInfo} />
           </Col>
         </Row>
       </Container>

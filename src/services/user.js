@@ -7,7 +7,6 @@ const getUser = (id) => {
   return request.then(response => response.data)
 }
 
-
 const addNew = (place) => {
   const request = axios.post(`${baseUrl}/add/${place.email}`, place)
   return request.then(response => response.data)
