@@ -2,10 +2,6 @@
  * @jest-environment jsdom
  */
 import '@testing-library/jest-dom/extend-expect'
-import axios from 'axios'
-
-import station from './stations.js'
-
  
 jest.mock('axios')
 

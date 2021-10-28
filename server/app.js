@@ -11,7 +11,7 @@ const appRouter =  require('./controllers/appApi')
 const middleware = require('./utils/middleware')
 
 const app = express()
-const fuelAPI = new fuelApiController()
+// const fuelAPI = new fuelApiController()
 
 app.use(cors())
 app.use(express.json())
