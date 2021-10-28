@@ -1,4 +1,4 @@
-const express = require('express') 
+const express = require('express')
 const GeoJSON = require('geojson')
 
 const Price = require("../models/prices")
@@ -78,9 +78,17 @@ apiRouter.get('/api/map/geojson', (req, res) => {
                 }
             })
 
-            const json = GeoJSON.parse(stations, {Point: ['lat', 'lng']});
+            const json = GeoJSON.parse(stations, { Point: ['lat', 'lng'] });
             res.json(json)
         })
+})
+
+apiRouter.get('/*', (request, response) => {
+    response.sendFile(path.join(__dirname, '../../build/index.html'), function (err) {
+        if (err) {
+            response.status(500).send(err)
+        }
+    })
 })
 
 module.exports = apiRouter
