@@ -1,12 +1,11 @@
 import React,{useEffect,useState} from 'react'
 import { Container } from 'react-bootstrap'
 import MapContainer from './MapContainer'
-import { useHistory, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 import userService from '../services/user'
 
-const Map = ({ title, figure }) => {
-  const history = useHistory()
+const Map = () => {
   const location = useLocation()
   const { user ,isAuthenticated} = useAuth0()
   const [markers, setMarkers] = useState()

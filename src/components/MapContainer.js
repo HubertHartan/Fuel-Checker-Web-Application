@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useRef ,useCallback,useEffect} from 'react'
+import { useState, useRef, useCallback} from 'react'
 import MapGL, { Source, Layer , Marker} from 'react-map-gl'
 import { clusterLayer, clusterCountLayer, unclusteredPointLayer } from '../utils/Layers'
 import Geocoder from 'react-map-gl-geocoder'

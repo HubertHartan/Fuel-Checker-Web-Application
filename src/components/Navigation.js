@@ -2,7 +2,6 @@ import React from 'react'
 import {
   Navbar,
   Container,
-  NavDropdown,
   Nav,
   Button,
   Dropdown
@@ -11,7 +10,7 @@ import { DropletHalf } from 'react-bootstrap-icons'
 import { useAuth0 } from '@auth0/auth0-react'
 import { LinkContainer } from 'react-router-bootstrap'
 
-const Navigation = ({ }) => {
+const Navigation = () => {
   const { user, isAuthenticated, isLoading, loginWithRedirect, logout } = useAuth0()
 
   return (
