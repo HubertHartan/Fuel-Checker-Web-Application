@@ -337,7 +337,7 @@ function App() {
       <Switch>
           
         <Route path="/map">
-          <Map />
+          <Map stations={stations} />
         </Route>
 
         <Route path="/stations">
