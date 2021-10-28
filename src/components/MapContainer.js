@@ -32,9 +32,10 @@ const MapContainer = ({ initialLocation, markers, setVisibleStations }) => {
   const mapRef = useRef(null)
   const [popupInfo, setPopupInfo] = useState(null)
 
-  const onMouseUp = async () => {
+  const handleViewChange = async () => {
     let clusters = []
     let features = []
+    let pointCount = 0
 
     const mapboxSource = mapRef.current.getMap()
     const elementsInFrame = mapboxSource.queryRenderedFeatures({ layers: ['station', 'clusters'] })
@@ -46,6 +47,8 @@ const MapContainer = ({ initialLocation, markers, setVisibleStations }) => {
       if (f.properties.cluster) {
         // If the feature is a cluster, add it to the cluster list for processing later
         const clusterID = f.properties.cluster_id
+        pointCount += f.properties.point_count
+
         if (!clusters.includes(clusterID)) {
           clusters.push(clusterID)
         }
@@ -56,6 +59,11 @@ const MapContainer = ({ initialLocation, markers, setVisibleStations }) => {
           features.push(feature)
         }
       }
+    }
+
+    // Exit if there are too many points
+    if (pointCount > 500) {
+      return
     }
 
     // Loop through each cluster and get the features contained within
@@ -119,7 +127,7 @@ const MapContainer = ({ initialLocation, markers, setVisibleStations }) => {
     (newViewport) => setViewport(newViewport),
     []
   )
-  
+
   return (
     <>
       <MapGL
@@ -131,7 +139,8 @@ const MapContainer = ({ initialLocation, markers, setVisibleStations }) => {
         interactiveLayerIds={[clusterLayer.id, stationLayer.id]}
         onViewportChange={setViewport}
         onClick={onClick}
-        onMouseUp={onMouseUp}
+        onMouseUp={handleViewChange}
+        onTransitionEnd={handleViewChange}
         ref={mapRef}
       >
         <Source
