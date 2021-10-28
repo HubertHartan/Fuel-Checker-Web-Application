@@ -26,6 +26,9 @@ function App() {
   const [metrics, setMetrics] = useState()
   const [fuelType, setFuelType] = useState('E10')
 
+
+ 
+
   useEffect(() => {
     stationService.getStations()
       .then(response => {
@@ -329,7 +332,7 @@ function App() {
       lastupdated: '29/09/2021 02:30:50'
   }
 ]
-  
+  console.log(metrics)
 
   return (
     <>
