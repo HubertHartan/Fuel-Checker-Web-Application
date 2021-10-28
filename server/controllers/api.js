@@ -83,12 +83,4 @@ apiRouter.get('/api/map/geojson', (req, res) => {
         })
 })
 
-apiRouter.get('/*', (request, response) => {
-    response.sendFile(path.join(__dirname, '../../build/index.html'), function (err) {
-        if (err) {
-            response.status(500).send(err)
-        }
-    })
-})
-
 module.exports = apiRouter
