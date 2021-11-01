@@ -16,8 +16,9 @@ userRouter.get('/api/user/:id', (req, res) => {
 userRouter.post('/api/user/add/:id', async(req, res) => {
   try {
     const user = await User.findOne({ email: req.params.id })
+    const {fuelStation} = req.body
     if (user) {
-      user.fuelStations = user.fuelStations.concat(req.body.fuelStations)
+      user.fuelStations = user.fuelStations.concat(fuelStation)
       console.log('hello', user)
       await user.save()
       return res.json('Added fuel station')
@@ -25,7 +26,7 @@ userRouter.post('/api/user/add/:id', async(req, res) => {
       const newUser = new User({
         email: req.params.id,
         name: req.body.name,
-        fuelStations: [req.body.fuelStations],
+        fuelStations: [fuelStation],
       })
       await newUser
         .save()
@@ -39,15 +40,17 @@ userRouter.post('/api/user/add/:id', async(req, res) => {
 
 userRouter.delete('/api/user/delete/:id', async(req, res) => {
   try {
-    const fuelStaion = req.body.fuelStation
-    const user = await User.find({email: req.params.id })
+    const data = req.params.id.split('-')
+    console.log(data)
+    const user = await User.findOne({email: data[0] })
     if (user) {
-      user.fuelStations = user.fuelStations.filter(station => station.stationcode != fuelStaion)
-      await user.save()
-      return res.json('Deleted fuel station')
+      user.fuelStations = user.fuelStations.filter(station => station.code != data[1])
+      await user
+        .save()
+        .then(() => res.json('Deleted fuel station'))
     }
   } catch (error) {
-    res.status(400).json('Error' + err)
+    res.status(400).json('Error' + error)
   }
 })
 
