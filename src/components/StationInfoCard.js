@@ -3,7 +3,9 @@ import {
   ListGroup,
   Button
 } from 'react-bootstrap'
+
 import { useHistory } from 'react-router-dom'
+import Bookmark from './Bookmark.js'
 
 const StationInfoCard = ({ stationInfo }) => {
   const history = useHistory()
@@ -22,6 +24,8 @@ const StationInfoCard = ({ stationInfo }) => {
       <div className="station-info-card p-3">
         <div className="bg-white rounded shadow-sm p-4">
           <h5 className="fw-bold">{stationInfo?.name}</h5>
+          <Bookmark station={stationInfo}/>
+          
           <p className="text-muted small">{stationInfo?.address}</p>
 
           <ListGroup variant="flush">

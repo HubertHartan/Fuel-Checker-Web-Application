@@ -6,8 +6,8 @@ import {
 } from 'react-bootstrap'
 import { useLocation } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
+import { useSelector } from 'react-redux'
 
-import userService from '../services/user'
 import stationService from '../services/stations'
 
 import MapContainer from './MapContainer'
@@ -16,19 +16,18 @@ import StationInfoCard from './StationInfoCard'
 
 const Map = () => {
   const location = useLocation()
-  const { user, isAuthenticated } = useAuth0()
+  const {isAuthenticated } = useAuth0()
   const [markers, setMarkers] = useState()
   const [visibleStations, setVisibleStations] = useState()
   const [stationInfo, setStationInfo] = useState()
 
+  const bookmarks = useSelector(state => state)
+
   useEffect(() => {
-    if (isAuthenticated) {
-      userService.getUser(user.email)
-        .then((data) => {
-          setMarkers(data)
-        })
+    if (isAuthenticated) { 
+      setMarkers(bookmarks)
     }
-  }, [])
+  }, [bookmarks])
 
   const changeStationInfo = (code) => {
     if (stationInfo?.code == code) return
