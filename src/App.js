@@ -6,7 +6,8 @@ import {
 } from 'react-router-dom'
 
 import stationService from './services/stations'
-
+import { useAuth0 } from '@auth0/auth0-react'
+import { useDispatch } from 'react-redux'
 
 //Customisation
 import './sass/App.scss'
@@ -16,6 +17,7 @@ import Navigation from './components/Navigation'
 import Map from './components/Map'
 import Dashboard from './components/Dashboard'
 import StationTable from './components/StationTable'
+import { initializeBookmarks } from './reducers/userReducer'
 
 // Pages
 import GraphPage from './pages/GraphPage'
@@ -26,6 +28,16 @@ function App() {
   const [stations, setStations] = useState([])
   const [metrics, setMetrics] = useState()
   const [fuelType, setFuelType] = useState('E10')
+
+  const { user, isAuthenticated } = useAuth0()
+  
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      dispatch(initializeBookmarks(user.email))
+    }     
+  }, [user])
 
   useEffect(() => {
     stationService.getStations()

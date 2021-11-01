@@ -3,8 +3,12 @@ import ReactDOM from 'react-dom'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Auth0Provider } from '@auth0/auth0-react'
-
+import { Provider } from 'react-redux'
 import App from './App'
+
+import store from './store'
+
+import 'semantic-ui-css/semantic.min.css'
 
 import './index.css'
 
@@ -15,9 +19,11 @@ ReactDOM.render(
       clientId="KePGUf61ytjAXhxqDzqjLD13uq0nmW8M"
       redirectUri={window.location.origin}
     >
-      <Router>
-        <App />
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <App />
+        </Router>
+      </Provider>
     </Auth0Provider>
   </React.StrictMode>,
   document.getElementById('root')

@@ -5,6 +5,7 @@ import { clusterLayer, clusterCountLayer, stationLayer } from '../utils/Layers'
 import Geocoder from 'react-map-gl-geocoder'
 import { useAuth0 } from '@auth0/auth0-react'
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
+import { Icon } from 'semantic-ui-react'
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZmx5bm50ZXMiLCJhIjoiY2tneDAwZ2ZkMDE2azJ0bzM1MG15N3d1cyJ9.LHpIlA-UNOCFXjFucg2AQg'
 
@@ -176,10 +177,10 @@ const MapContainer = ({ initialLocation, markers, setVisibleStations, changeStat
             </Popup>
           )}
 
-          {(isAuthenticated && (markers !== null) && (markers !== undefined)) ?
+          {(isAuthenticated && markers) ?
             (markers.fuelStations.map(station => (
               <Marker key={station.code} longitude={station.long} latitude={station.lat} >
-                <img src="pin.png" />
+                <Icon name='map pin' color='red' size='big'/>
               </Marker>)))
 
             : null
