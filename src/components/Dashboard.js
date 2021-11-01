@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import {
   Row,
   Container,
@@ -6,10 +6,12 @@ import {
   Dropdown,
 } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
 
 // Components
 import MetricCard from './MetricCard'
 
+const MAPBOX_TOKEN = 'pk.eyJ1IjoiZmx5bm50ZXMiLCJhIjoiY2tneDAwZ2ZkMDE2azJ0bzM1MG15N3d1cyJ9.LHpIlA-UNOCFXjFucg2AQg'
 
 const Dashboard = ({ fuelType, metrics }) => {
   const history = useHistory()
@@ -27,6 +29,26 @@ const Dashboard = ({ fuelType, metrics }) => {
     }
   }
 
+
+  useEffect(() => {
+    {
+      const geocoder = new MapboxGeocoder({ accessToken: MAPBOX_TOKEN, types: 'country,region,place,postcode,locality,neighborhood'})
+       
+      geocoder.addTo('.input-field')
+       
+      // Add geocoder result to container.
+      geocoder.on('result', (e) => {
+        const { center } = e.result
+        const [longitude, latitude] = center
+        history.push('/map', {
+          lat: latitude,
+          long: longitude,
+        })
+      })
+    }
+  }, [])
+
+
   return (
     <>
       <Container fluid className="welcome-hero">
@@ -37,12 +59,13 @@ const Dashboard = ({ fuelType, metrics }) => {
               <span>Use your location or enter your suburb below.</span>
               <form action="" className="mt-3">
                 <div className="input-group">
-                  <input type="text" placeholder="Search location" className="form-control rounded" />
+                  <div className="input-field"/>
                   <span className="input-group-btn ms-2">
                     <input type="submit" value="Search" className="btn btn-primary" data-disable-with="Search" />
                   </span>
                 </div>
               </form>
+              
               <button onClick={() => getGeoLocation()} className="btn btn-transparent text-white">Use my location</button>
             </div>
           </Col>
