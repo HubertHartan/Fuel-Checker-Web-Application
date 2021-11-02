@@ -19,7 +19,6 @@ userRouter.post('/api/user/add/:id', async(req, res) => {
     const {fuelStation} = req.body
     if (user) {
       user.fuelStations = user.fuelStations.concat(fuelStation)
-      console.log('hello', user)
       await user.save()
       return res.json('Added fuel station')
     } else {
@@ -41,7 +40,6 @@ userRouter.post('/api/user/add/:id', async(req, res) => {
 userRouter.delete('/api/user/delete/:id', async(req, res) => {
   try {
     const data = req.params.id.split('-')
-    console.log(data)
     const user = await User.findOne({email: data[0] })
     if (user) {
       user.fuelStations = user.fuelStations.filter(station => station.code != data[1])
