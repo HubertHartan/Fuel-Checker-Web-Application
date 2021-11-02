@@ -5,10 +5,9 @@ import {
   Container,
   Row,
   Col,
-  Card
 } from 'react-bootstrap'
 
-import FuelGraph from '../components/FuelGraph';
+import FuelGraph from '../components/FuelGraph'
 const GraphPage = ({data}) =>{
   return(
     <Container className="main-graph py-4">
@@ -18,31 +17,30 @@ const GraphPage = ({data}) =>{
         </Col>
       </Row>
 
-            <Row>
-                
-                <Col md="4" className="mb-4">
-                    <FuelGraph data={data} fuelType="E10" />
-                </Col>
+      <Row>            
+        <Col md="4" className="mb-4">
+          <FuelGraph data={data} fuelType="E10" />
+        </Col>
 
-                <Col md="4" className="mb-4">
-                    <FuelGraph data={data} fuelType="91" />
-                </Col>
+        <Col md="4" className="mb-4">
+          <FuelGraph data={data} fuelType="91" />
+        </Col>
 
-                <Col md="4" className="mb-4">
-                    <FuelGraph data={data} fuelType="95" />
-                </Col>
+        <Col md="4" className="mb-4">
+          <FuelGraph data={data} fuelType="95" />
+        </Col>
 
-                <Col md="4" className="mb-4">
-                    <FuelGraph data={data} fuelType="98" />
-                </Col>
+        <Col md="4" className="mb-4">
+          <FuelGraph data={data} fuelType="98" />
+        </Col>
 
-                <Col md="4" className="mb-4">
-                    <FuelGraph data={data} fuelType="Diesel" />
-                </Col>
+        <Col md="4" className="mb-4">
+          <FuelGraph data={data} fuelType="Diesel" />
+        </Col>
 
-            </Row>
-        </Container>
-    )
+      </Row>
+    </Container>
+  )
 
 }
 
