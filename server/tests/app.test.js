@@ -33,9 +33,9 @@ describe('api', () => {
     }  
   })
 
-  test('Simple test expecting page to be HTML', async () => {
+  test('Simple test expecting page to be JSON', async () => {
     await api.get('/')
-      .expect('Content-Type', 'text/html; charset=utf-8')
+      .expect('Content-Type', 'application/json; charset=utf-8')
   })
 
 })

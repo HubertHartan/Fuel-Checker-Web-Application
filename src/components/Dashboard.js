@@ -29,6 +29,10 @@ const Dashboard = ({ fuelType, metrics, setFuelType}) => {
     }
   }
 
+  const handleFuelChange = (fuel) => {
+    console.log(fuel)
+    setFuelType(fuel)
+  }
 
   useEffect(() => {
     {
@@ -83,11 +87,11 @@ const Dashboard = ({ fuelType, metrics, setFuelType}) => {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-				  <Dropdown.Item onClick={()=>setFuelType('E10')}>E10</Dropdown.Item>
-                  <Dropdown.Item onClick={()=>setFuelType('91')}>91</Dropdown.Item>
-                  <Dropdown.Item onClick={()=>setFuelType('95')}>95</Dropdown.Item>
-                  <Dropdown.Item onClick={()=>setFuelType('98')}>98</Dropdown.Item>
-                  <Dropdown.Item onClick={()=>setFuelType('Diesel')}>Diesel</Dropdown.Item>
+				          <Dropdown.Item onClick={()=>handleFuelChange('E10')}>E10</Dropdown.Item>
+                  <Dropdown.Item onClick={()=>handleFuelChange('91')}>91</Dropdown.Item>
+                  <Dropdown.Item onClick={()=>handleFuelChange('95')}>95</Dropdown.Item>
+                  <Dropdown.Item onClick={()=>handleFuelChange('98')}>98</Dropdown.Item>
+                  <Dropdown.Item onClick={()=>handleFuelChange('Diesel')}>Diesel</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </div>
