@@ -13,7 +13,7 @@ import MetricCard from './MetricCard'
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZmx5bm50ZXMiLCJhIjoiY2tneDAwZ2ZkMDE2azJ0bzM1MG15N3d1cyJ9.LHpIlA-UNOCFXjFucg2AQg'
 
-const Dashboard = ({ fuelType, metrics }) => {
+const Dashboard = ({ fuelType, metrics, setFuelType}) => {
   const history = useHistory()
 
   const getGeoLocation = () => {
@@ -83,11 +83,11 @@ const Dashboard = ({ fuelType, metrics }) => {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item>E10</Dropdown.Item>
-                  <Dropdown.Item>91</Dropdown.Item>
-                  <Dropdown.Item>95</Dropdown.Item>
-                  <Dropdown.Item>98</Dropdown.Item>
-                  <Dropdown.Item>Diesel</Dropdown.Item>
+				  <Dropdown.Item onClick={()=>setFuelType('E10')}>E10</Dropdown.Item>
+                  <Dropdown.Item onClick={()=>setFuelType('91')}>91</Dropdown.Item>
+                  <Dropdown.Item onClick={()=>setFuelType('95')}>95</Dropdown.Item>
+                  <Dropdown.Item onClick={()=>setFuelType('98')}>98</Dropdown.Item>
+                  <Dropdown.Item onClick={()=>setFuelType('Diesel')}>Diesel</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </div>
