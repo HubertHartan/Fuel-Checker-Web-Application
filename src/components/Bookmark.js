@@ -13,13 +13,13 @@ export default function Bookmark({ station }) {
 
   return (
     (bookmarked) ? (
-      <Icon name='remove bookmark' link onClick={() => {
+      <Icon name='remove bookmark' color='purple' size='large' link onClick={() => {
         if (isAuthenticated) {
           dispatch(deleteBookmark({ email: user.email, id: station.code }))
           setbookmarked(false)
         }
       }} />) : (
-      <Icon name='bookmark outline' link onClick={() => {
+      <Icon name='bookmark outline' size='large' link onClick={() => {
         if (isAuthenticated) {
           const newPlace = {
             email: user.email,
