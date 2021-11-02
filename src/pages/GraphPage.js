@@ -1,31 +1,22 @@
 import React from 'react'
-import { 
-    LineChart, 
-    Line,
-    CartesianGrid,
-    XAxis, 
-    YAxis,
-    Tooltip,
-    ResponsiveContainer
-} from 'recharts';
 
 
 import {
-    Container,
-    Row,
-    Col,
-    Card
-} from 'react-bootstrap';
+  Container,
+  Row,
+  Col,
+  Card
+} from 'react-bootstrap'
 
 import FuelGraph from '../components/FuelGraph';
 const GraphPage = ({data}) =>{
-    return(
-        <Container className="main-graph py-4">
-            <Row>
-                <Col>
-                    <h2 className="fw-bold mb-4">Fuel Trends</h2>
-                </Col>
-            </Row>
+  return(
+    <Container className="main-graph py-4">
+      <Row>
+        <Col>
+          <h2 className="fw-bold mb-4">Fuel Trends</h2>
+        </Col>
+      </Row>
 
             <Row>
                 

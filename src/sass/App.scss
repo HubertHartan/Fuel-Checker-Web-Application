@@ -25,7 +25,15 @@ body {
 }
 
 .main-graph {
-  
   background-size: cover;
   background-position: center;
+}
+
+.border-grey {
+  border-color: #dee2e6 !important
+}
+
+.station-info-card {
+  position: fixed;
+  z-index: 1;
 }

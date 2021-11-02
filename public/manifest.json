@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Fuel Checker",
+  "name": "An app used for checking fuel prices in NSW.",
   "icons": [
     {
       "src": "favicon.ico",

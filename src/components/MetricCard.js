@@ -5,9 +5,9 @@ import {
 
 const MetricCard = ({ title, figure }) => {
   const formatPrice = (price) => {
-    if (!price) return "...";
-    let formattedPrice = (price / 100).toFixed(3);
-    return formattedPrice;
+    if (!price) return '...'
+    let formattedPrice = (price / 100).toFixed(3)
+    return formattedPrice
   }
 
   return (
