@@ -130,6 +130,8 @@ const MapContainer = ({ initialLocation, markers, setVisibleStations, changeStat
 
         changeStationInfo(feature.properties.code)
       }
+      
+      setTimeout(() => { handleViewChange() }, 1100)
     } else {
       setPopupInfo(null)
       changeStationInfo(null)
