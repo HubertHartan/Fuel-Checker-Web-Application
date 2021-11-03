@@ -4,6 +4,8 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { createBookmark ,deleteBookmark} from '../reducers/userReducer'
 import {Icon} from 'semantic-ui-react'
 
+// TODO: Update bookmark icon
+
 export default function Bookmark({ station }) {
   const { user, isAuthenticated } = useAuth0()
   const dispatch = useDispatch()
