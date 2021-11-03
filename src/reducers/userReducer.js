@@ -45,8 +45,14 @@ export const deleteBookmark = (info) => {
 
 export const initializeBookmarks = (id) => {
   return async dispatch => {
-    const user = await userService.getUser(id)
-    console.log(user)
+    var user = await userService.getUser(id)
+    if (!user) {
+      user = {
+        name: '',
+        email: '',
+        fuelStations: []
+      }
+    }
     dispatch({
       type: 'INIT_USER',
       data: user,
