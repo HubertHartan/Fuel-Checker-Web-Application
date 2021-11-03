@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Row,
   Container,
@@ -13,8 +13,11 @@ import MetricCard from './MetricCard'
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZmx5bm50ZXMiLCJhIjoiY2tneDAwZ2ZkMDE2azJ0bzM1MG15N3d1cyJ9.LHpIlA-UNOCFXjFucg2AQg'
 
-const Dashboard = ({ fuelType, metrics }) => {
+const Dashboard = ({metrics, setFuelType}) => {
   const history = useHistory()
+
+
+  const [fuelName, setFuelName] = useState('E10')
 
   const getGeoLocation = () => {
     if (navigator.geolocation) {
@@ -29,6 +32,11 @@ const Dashboard = ({ fuelType, metrics }) => {
     }
   }
 
+  const handleFuelChange = (fuel,name) => {
+    
+    setFuelType(fuel)
+    setFuelName(name)
+  }
 
   useEffect(() => {
     {
@@ -79,15 +87,15 @@ const Dashboard = ({ fuelType, metrics }) => {
 
               <Dropdown>
                 <Dropdown.Toggle variant="text" id="fuelSelect">
-                  <b>Fuel:</b> {fuelType}
+                  <b>Fuel:</b> {fuelName}
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item>E10</Dropdown.Item>
-                  <Dropdown.Item>91</Dropdown.Item>
-                  <Dropdown.Item>95</Dropdown.Item>
-                  <Dropdown.Item>98</Dropdown.Item>
-                  <Dropdown.Item>Diesel</Dropdown.Item>
+				  <Dropdown.Item onClick={()=>handleFuelChange('E10','E10')}>E10</Dropdown.Item>
+                  <Dropdown.Item onClick={()=>handleFuelChange('U91','91')}>91</Dropdown.Item>
+                  <Dropdown.Item onClick={()=>handleFuelChange('P95','95')}>95</Dropdown.Item>
+                  <Dropdown.Item onClick={()=>handleFuelChange('P98','98')}>98</Dropdown.Item>
+                  <Dropdown.Item onClick={()=>handleFuelChange('DL','Diesel')}>Diesel</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </div>
