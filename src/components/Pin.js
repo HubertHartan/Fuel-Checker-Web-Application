@@ -1,8 +1,8 @@
 import React from 'react'
-import { Icon } from 'semantic-ui-react'
-import  { Marker } from 'react-map-gl'
+import { Marker } from 'react-map-gl'
+import { GeoAltFill } from 'react-bootstrap-icons'
 
-export default function Pin({ markers, setpopupMarkerInfo ,changeViewport, viewport}) {
+export default function Pin({ markers, setPopupMarkerInfo, changeViewport, viewport }) {
   const handleOnclick = (station) => {
     changeViewport({
       ...viewport,
@@ -22,14 +22,11 @@ export default function Pin({ markers, setpopupMarkerInfo ,changeViewport, viewp
           latitude={station.lat}
           onClick={() => handleOnclick(station)}
           offsetLeft={-15}
-        >              
-          <Icon name='map pin'
-            color='red' size='big'
-            onMouseEnter={() => setpopupMarkerInfo(station)}
-            style={{cursor:'pointer'}}
-          />
+          offsetTop={-30}
+        >
+          <GeoAltFill className="text-danger" size="30px" onMouseEnter={() => setPopupMarkerInfo(station)} />
         </Marker>)))
       : null
-    
+
   )
 }
