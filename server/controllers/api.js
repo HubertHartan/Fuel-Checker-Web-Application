@@ -55,16 +55,20 @@ apiRouter.get('/api/metrics/fuel/:fueltype', (req, res) => {
   Price.find({
     fueltype: req.params.fueltype
   }).then(prices => {
-    const average = prices.reduce((total, next) => total + next.price, 0) / prices.length
-    const min = prices.reduce((prev, current) => (prev.price < current.price) ? prev : current)
-    const max = prices.reduce((prev, current) => (prev.price > current.price) ? prev : current)
-
-    res.json({
-      average,
-      min,
-      max,
-      range: max.price - min.price,
-    })
+    if (prices.length > 0) {
+      const average = prices.reduce((total, next) => total + next.price, 0) / prices.length
+      const min = prices.reduce((prev, current) => (prev.price < current.price) ? prev : current)
+      const max = prices.reduce((prev, current) => (prev.price > current.price) ? prev : current)
+  
+      res.json({
+        average,
+        min,
+        max,
+        range: max.price - min.price,
+      })
+    } else {
+      res.status(500).send('Internal Server Error')
+    }
   })
 })
 
