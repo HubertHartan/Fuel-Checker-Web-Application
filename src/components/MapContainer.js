@@ -221,6 +221,7 @@ const MapContainer = ({ initialLocation, markers, setVisibleStations, changeStat
           onViewportChange={handleViewportChange}
           mapboxApiAccessToken={MAPBOX_TOKEN}
           position="top-right"
+          countries="au"
         />
       </MapGL>
     </>

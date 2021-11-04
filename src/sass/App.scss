@@ -37,3 +37,10 @@ body {
   position: fixed;
   z-index: 1;
 }
+
+.hero-search-container {
+  .mapboxgl-ctrl-geocoder {
+    width: 100%;
+    max-width: 100%;
+  }
+}

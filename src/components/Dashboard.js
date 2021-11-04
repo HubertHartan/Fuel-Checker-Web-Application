@@ -16,7 +16,6 @@ const MAPBOX_TOKEN = 'pk.eyJ1IjoiZmx5bm50ZXMiLCJhIjoiY2tneDAwZ2ZkMDE2azJ0bzM1MG1
 const Dashboard = ({ metrics, setFuelType }) => {
   const history = useHistory()
 
-
   const [fuelName, setFuelName] = useState('E10')
 
   const getGeoLocation = () => {
@@ -33,27 +32,27 @@ const Dashboard = ({ metrics, setFuelType }) => {
   }
 
   const handleFuelChange = (fuel, name) => {
-
     setFuelType(fuel)
     setFuelName(name)
   }
 
   useEffect(() => {
-    {
-      const geocoder = new MapboxGeocoder({ accessToken: MAPBOX_TOKEN, types: 'country,region,place,postcode,locality,neighborhood' })
+    const geocoder = new MapboxGeocoder({
+      accessToken: MAPBOX_TOKEN,
+      types: 'country,region,place,postcode,locality,neighborhood',
+      countries: 'au',
+    })
+    geocoder.addTo('.hero-search-container')
 
-      geocoder.addTo('.input-field')
-
-      // Add geocoder result to container.
-      geocoder.on('result', (e) => {
-        const { center } = e.result
-        const [longitude, latitude] = center
-        history.push('/map', {
-          lat: latitude,
-          long: longitude,
-        })
+    // Add geocoder result to container.
+    geocoder.on('result', (e) => {
+      const { center } = e.result
+      const [longitude, latitude] = center
+      history.push('/map', {
+        lat: latitude,
+        long: longitude,
       })
-    }
+    })
   }, [])
 
 
@@ -65,14 +64,8 @@ const Dashboard = ({ metrics, setFuelType }) => {
             <div className="rounded text-center text-white py-5">
               <h1 className="fw-bold">Find the cheapest fuel for your vehicle.</h1>
               <span>Use your location or enter your suburb below.</span>
-              <form action="" className="mt-3">
-                <div className="input-group">
-                  <div className="input-field" />
-                  <span className="input-group-btn ms-2">
-                    <input type="submit" value="Search" className="btn btn-primary" data-disable-with="Search" />
-                  </span>
-                </div>
-              </form>
+
+              <div className="hero-search-container mt-3"></div>
 
               <button onClick={() => getGeoLocation()} className="btn btn-transparent text-white">Use my location</button>
             </div>
