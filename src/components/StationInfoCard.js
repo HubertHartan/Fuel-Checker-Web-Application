@@ -23,8 +23,10 @@ const StationInfoCard = ({ stationInfo }) => {
     <>
       <div className="station-info-card p-3">
         <div className="bg-white rounded shadow-sm p-4">
-          <h5 className="fw-bold">{stationInfo?.name}</h5>
-          <Bookmark station={stationInfo}/>
+          <div className="d-flex justify-content-between align-items-center mb-3">
+            <h5 className="fw-bold m-0">{stationInfo?.name}</h5>
+            <Bookmark station={stationInfo}/>
+          </div>
           
           <p className="text-muted small">{stationInfo?.address}</p>
 
