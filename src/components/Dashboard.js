@@ -81,26 +81,23 @@ const Dashboard = ({metrics, setFuelType}) => {
       </Container>
       <Container className="py-4 mt-2">
         <Row className="pb-3">
-          <Col>
+		  <Col>
             <div className="d-flex justify-content-between align-items-center">
               <h2 className="fw-bold">Dashboard</h2>
-              <div>
-			  <Row className="pb-3">
-				  <div>Fuel:</div>
-                  <Dropdown>
-			        <Dropdown.Toggle variant="text" id="fuelSelect">
-                      {fuelName}
-                    </Dropdown.Toggle>
-					  <Dropdown.Menu>
-					  <Dropdown.Item onClick={()=>handleFuelChange('E10','E10')}>E10</Dropdown.Item>
-					  <Dropdown.Item onClick={()=>handleFuelChange('U91','91')}>91</Dropdown.Item>
-					  <Dropdown.Item onClick={()=>handleFuelChange('P95','95')}>95</Dropdown.Item>
-					  <Dropdown.Item onClick={()=>handleFuelChange('P98','98')}>98</Dropdown.Item>
-					  <Dropdown.Item onClick={()=>handleFuelChange('DL','Diesel')}>Diesel</Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
-			  </Row>
-              </div>
+
+              <Dropdown>
+                <Dropdown.Toggle variant="text" id="fuelSelect">
+                  <b>Fuel:</b> {fuelName}
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+				  <Dropdown.Item onClick={()=>handleFuelChange('E10','E10')}>E10</Dropdown.Item>
+                  <Dropdown.Item onClick={()=>handleFuelChange('U91','91')}>91</Dropdown.Item>
+                  <Dropdown.Item onClick={()=>handleFuelChange('P95','95')}>95</Dropdown.Item>
+                  <Dropdown.Item onClick={()=>handleFuelChange('P98','98')}>98</Dropdown.Item>
+                  <Dropdown.Item onClick={()=>handleFuelChange('DL','Diesel')}>Diesel</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
             </div>
           </Col>
         </Row>
