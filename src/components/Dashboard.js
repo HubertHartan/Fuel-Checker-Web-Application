@@ -13,7 +13,7 @@ import MetricCard from './MetricCard'
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZmx5bm50ZXMiLCJhIjoiY2tneDAwZ2ZkMDE2azJ0bzM1MG15N3d1cyJ9.LHpIlA-UNOCFXjFucg2AQg'
 
-const Dashboard = ({metrics, setFuelType}) => {
+const Dashboard = ({ metrics, setFuelType }) => {
   const history = useHistory()
 
 
@@ -32,18 +32,18 @@ const Dashboard = ({metrics, setFuelType}) => {
     }
   }
 
-  const handleFuelChange = (fuel,name) => {
-    
+  const handleFuelChange = (fuel, name) => {
+
     setFuelType(fuel)
     setFuelName(name)
   }
 
   useEffect(() => {
     {
-      const geocoder = new MapboxGeocoder({ accessToken: MAPBOX_TOKEN, types: 'country,region,place,postcode,locality,neighborhood'})
-       
+      const geocoder = new MapboxGeocoder({ accessToken: MAPBOX_TOKEN, types: 'country,region,place,postcode,locality,neighborhood' })
+
       geocoder.addTo('.input-field')
-       
+
       // Add geocoder result to container.
       geocoder.on('result', (e) => {
         const { center } = e.result
@@ -67,13 +67,13 @@ const Dashboard = ({metrics, setFuelType}) => {
               <span>Use your location or enter your suburb below.</span>
               <form action="" className="mt-3">
                 <div className="input-group">
-                  <div className="input-field"/>
+                  <div className="input-field" />
                   <span className="input-group-btn ms-2">
                     <input type="submit" value="Search" className="btn btn-primary" data-disable-with="Search" />
                   </span>
                 </div>
               </form>
-              
+
               <button onClick={() => getGeoLocation()} className="btn btn-transparent text-white">Use my location</button>
             </div>
           </Col>
@@ -91,11 +91,11 @@ const Dashboard = ({metrics, setFuelType}) => {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-				  <Dropdown.Item onClick={()=>handleFuelChange('E10','E10')}>E10</Dropdown.Item>
-                  <Dropdown.Item onClick={()=>handleFuelChange('U91','91')}>91</Dropdown.Item>
-                  <Dropdown.Item onClick={()=>handleFuelChange('P95','95')}>95</Dropdown.Item>
-                  <Dropdown.Item onClick={()=>handleFuelChange('P98','98')}>98</Dropdown.Item>
-                  <Dropdown.Item onClick={()=>handleFuelChange('DL','Diesel')}>Diesel</Dropdown.Item>
+                  <Dropdown.Item onClick={() => handleFuelChange('E10', 'E10')}>E10</Dropdown.Item>
+                  <Dropdown.Item onClick={() => handleFuelChange('U91', '91')}>91</Dropdown.Item>
+                  <Dropdown.Item onClick={() => handleFuelChange('P95', '95')}>95</Dropdown.Item>
+                  <Dropdown.Item onClick={() => handleFuelChange('P98', '98')}>98</Dropdown.Item>
+                  <Dropdown.Item onClick={() => handleFuelChange('DL', 'Diesel')}>Diesel</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </div>
