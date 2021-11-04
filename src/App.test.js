@@ -2,21 +2,21 @@
  * @jest-environment jsdom
  */
 
-import React from "react";
-import renderer from "react-test-renderer"; 
-import { render, screen } from '@testing-library/react';
-import App from './App';
-import Dashboard from "./components/Dashboard"
-import Map from "./components/Map";
-import MapContainer from "./components/MapContainer";
-import MetricCard from "./components/MetricCard";
+import React from 'react'
+import renderer from 'react-test-renderer' 
+import { render, screen } from '@testing-library/react'
+import App from './App'
+import Dashboard from './components/Dashboard'
+import Map from './components/Map'
+import MapContainer from './components/MapContainer'
+import MetricCard from './components/MetricCard'
 
 
 test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+  render(<App />)
+  const linkElement = screen.getByText(/learn react/i)
+  expect(linkElement).toBeInTheDocument()
+})
 
 test('Dashboard snapshot test', () => {
   const component = render(

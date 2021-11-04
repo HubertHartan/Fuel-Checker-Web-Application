@@ -9,15 +9,15 @@ const getUser = (id) => {
 
 
 const addNew = (place) => {
-    const request = axios.post(`${baseUrl}/add/${place.email}`, place)
-    return request.then(response => response.data)
+  const request = axios.post(`${baseUrl}/add/${place.email}`, place)
+  return request.then(response => response.data)
 }
 
 
-const deletePlace= (id) => {
-    const request = axios.get(`${baseUrl}/delele/${id}`)
-    return request.then(response => response.data)
+const deletePlace = ({ email, id }) => {
+  const request = axios.delete(`${baseUrl}/delete/${email}-${id}`)
+  return request.then(response => response.data)
 }
 
-const userService = {getUser,addNew, deletePlace};
+const userService = {getUser,addNew, deletePlace}
 export default userService

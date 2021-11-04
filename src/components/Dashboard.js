@@ -5,27 +5,57 @@ import {
   Col,
   Dropdown,
 } from 'react-bootstrap'
-import { useHistory } from "react-router-dom"
+import { useHistory } from 'react-router-dom'
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
 
 // Components
 import MetricCard from './MetricCard'
 
+const MAPBOX_TOKEN = 'pk.eyJ1IjoiZmx5bm50ZXMiLCJhIjoiY2tneDAwZ2ZkMDE2azJ0bzM1MG15N3d1cyJ9.LHpIlA-UNOCFXjFucg2AQg'
 
-const Dashboard = ({ fuelType, metrics }) => {
-  const history = useHistory();
+const Dashboard = ({metrics, setFuelType}) => {
+  const history = useHistory()
+
+
+  const [fuelName, setFuelName] = useState('E10')
 
   const getGeoLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        history.push("/map", {
+        history.push('/map', {
           lat: position.coords.latitude,
           long: position.coords.longitude,
-        });
-      });
+        })
+      })
     } else {
-      console.log("Couldn't get browser geolocation")
+      console.log('Couldn\'t get browser geolocation')
     }
   }
+
+  const handleFuelChange = (fuel,name) => {
+    
+    setFuelType(fuel)
+    setFuelName(name)
+  }
+
+  useEffect(() => {
+    {
+      const geocoder = new MapboxGeocoder({ accessToken: MAPBOX_TOKEN, types: 'country,region,place,postcode,locality,neighborhood'})
+       
+      geocoder.addTo('.input-field')
+       
+      // Add geocoder result to container.
+      geocoder.on('result', (e) => {
+        const { center } = e.result
+        const [longitude, latitude] = center
+        history.push('/map', {
+          lat: latitude,
+          long: longitude,
+        })
+      })
+    }
+  }, [])
+
 
   return (
     <>
@@ -37,12 +67,13 @@ const Dashboard = ({ fuelType, metrics }) => {
               <span>Use your location or enter your suburb below.</span>
               <form action="" className="mt-3">
                 <div className="input-group">
-                  <input type="text" placeholder="Search location" className="form-control rounded" />
+                  <div className="input-field"/>
                   <span className="input-group-btn ms-2">
                     <input type="submit" value="Search" className="btn btn-primary" data-disable-with="Search" />
                   </span>
                 </div>
               </form>
+              
               <button onClick={() => getGeoLocation()} className="btn btn-transparent text-white">Use my location</button>
             </div>
           </Col>
@@ -53,20 +84,23 @@ const Dashboard = ({ fuelType, metrics }) => {
           <Col>
             <div className="d-flex justify-content-between align-items-center">
               <h2 className="fw-bold">Dashboard</h2>
-
-              <Dropdown>
-                <Dropdown.Toggle variant="text" id="fuelSelect">
-                  <b>Fuel:</b> {fuelType}
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu>
-                  <Dropdown.Item>E10</Dropdown.Item>
-                  <Dropdown.Item>91</Dropdown.Item>
-                  <Dropdown.Item>95</Dropdown.Item>
-                  <Dropdown.Item>98</Dropdown.Item>
-                  <Dropdown.Item>Diesel</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
+              <div>
+			  <Row className="pb-3">
+				  <div>Fuel:</div>
+                  <Dropdown>
+			        <Dropdown.Toggle variant="text" id="fuelSelect">
+                      {fuelName}
+                    </Dropdown.Toggle>
+					  <Dropdown.Menu>
+					  <Dropdown.Item onClick={()=>handleFuelChange('E10','E10')}>E10</Dropdown.Item>
+					  <Dropdown.Item onClick={()=>handleFuelChange('U91','91')}>91</Dropdown.Item>
+					  <Dropdown.Item onClick={()=>handleFuelChange('P95','95')}>95</Dropdown.Item>
+					  <Dropdown.Item onClick={()=>handleFuelChange('P98','98')}>98</Dropdown.Item>
+					  <Dropdown.Item onClick={()=>handleFuelChange('DL','Diesel')}>Diesel</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+			  </Row>
+              </div>
             </div>
           </Col>
         </Row>

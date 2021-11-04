@@ -1,9 +1,14 @@
 import axios from 'axios'
 
-const baseUrl = 'http://localhost:3001/api'
+const baseUrl = '/api'
 
 const getStations = () => {
   const request = axios.get(`${baseUrl}/stations`)
+  return request.then(response => response.data)
+}
+
+const getStation = (stationCode) => {
+  const request = axios.get(`${baseUrl}/stations/${stationCode}`)
   return request.then(response => response.data)
 }
 
@@ -12,6 +17,5 @@ const getMetric = (fuelType) => {
   return request.then(response => response.data)
 }
 
-
-const service = {getStations, getMetric};
+const service = {getStations, getStation, getMetric}
 export default service

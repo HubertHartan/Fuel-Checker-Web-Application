@@ -5,8 +5,8 @@ import {
   Row,
   Col
 } from 'react-bootstrap'
-import userService from "../services/user"
-import { useAuth0 } from "@auth0/auth0-react"
+import userService from '../services/user'
+import { useAuth0 } from '@auth0/auth0-react'
 
 const Navigation = ({ stations }) => {
   const { user, isAuthenticated } = useAuth0()
@@ -24,7 +24,7 @@ const Navigation = ({ stations }) => {
               fuelStations: station
             }
             console.log(newPlace)
-            userService.addNew(newPlace).catch("error")
+            userService.addNew(newPlace).catch('error')
           }
         }}>Add</button>}</td>
       </tr>

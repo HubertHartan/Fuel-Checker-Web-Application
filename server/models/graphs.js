@@ -1,14 +1,13 @@
 const mongoose = require('mongoose')
 
-const priceSchema = new mongoose.Schema({
-  stationcode: String,
-  state: String,
+const graphSchema = new mongoose.Schema({
   fueltype: String,
   price: Number,
-  lastupdated: Date,
+},{
+	timestamps:true
 })
 
-priceSchema.set('toJSON', {
+graphSchema.set('toJSON', {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id.toString()
     delete returnedObject._id
@@ -16,6 +15,7 @@ priceSchema.set('toJSON', {
   }
 })
 
-const Price = mongoose.model('Price', priceSchema)
+const Graph = mongoose.model('Graph', graphSchema)
 
-module.exports = Price
+module.exports = Graph
+

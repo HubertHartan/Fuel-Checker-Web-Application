@@ -1,28 +1,63 @@
-const noteReducer = (state = [], action) => {
-    switch(action.type) {
-      case 'NEW_STATION':
-        return [...state, action.data]
-      case 'DELETE_STATION':
-        const id = action.data.id
-        return state.filter(station =>
-            station.id !== id
-        )
-      default:
-        return state
-    }
+import userService from '../services/user'
+
+const userReducer = (state = {}, action) => {
+  switch(action.type) {
+  case 'NEW_BOOKMARK':
+    state.fuelStations = state.fuelStations.concat(action.data)
+    return state
+  case 'INIT_USER':
+    return action.data
+  case 'DELETE_BOOKMARK':
+    console.log(action.data)
+    state.fuelStations = state.fuelStations.filter(station => station.code != action.data)
+    return state
+  default:
+    return state
+  }
 }
-  
-const generateId = () =>
-    Number((Math.random() * 1000000).toFixed(0))
-  
-  export const createNote = (content) => {
-    return {
-      type: 'NEW_STATION',
-      data: {
-        content,
-        id: generateId()
+
+export const createBookmark = (content)=> {
+  return async dispatch => {
+    await userService.addNew(content)
+    // console.log(content)
+    dispatch({
+      type: 'NEW_BOOKMARK',
+      data: content.fuelStation,
+    })
+  }
+}
+
+export const deleteBookmark = (info) => {
+  return async dispatch => {
+    try {
+      await userService.deletePlace(info)
+      dispatch({
+        type: 'DELETE_BOOKMARK',
+        data: info.id,
+      })
+    } catch (error) {
+      console.error(error)
+    }
+    
+  }
+}
+
+
+export const initializeBookmarks = (id) => {
+  return async dispatch => {
+    var user = await userService.getUser(id)
+    if (!user) {
+      user = {
+        name: '',
+        email: '',
+        fuelStations: []
       }
     }
+    dispatch({
+      type: 'INIT_USER',
+      data: user,
+    })
+  }
 }
-  
-export default noteReducer
+
+export default userReducer
