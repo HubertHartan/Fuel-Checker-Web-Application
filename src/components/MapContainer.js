@@ -5,6 +5,9 @@ import { clusterLayer, clusterCountLayer, stationLayer } from '../utils/Layers'
 import Geocoder from 'react-map-gl-geocoder'
 import { useAuth0 } from '@auth0/auth0-react'
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
+import {
+  Button
+} from 'react-bootstrap'
 
 import { deleteBookmark } from '../reducers/userReducer'
 import { useDispatch } from 'react-redux'
@@ -37,7 +40,7 @@ const MapContainer = ({ initialLocation, markers, setVisibleStations, changeStat
 
   const mapRef = useRef(null)
   const [popupInfo, setPopupInfo] = useState(null)
-  const [popupMarkerInfo, setpopupMarkerInfo] = useState(null)
+  const [popupMarkerInfo, setPopupMarkerInfo] = useState(null)
 
   const handleViewChange = async () => {
     let clusters = []
@@ -98,7 +101,7 @@ const MapContainer = ({ initialLocation, markers, setVisibleStations, changeStat
       })
     })
   }
-  
+
   const onClick = event => {
     const feature = event.features[0]
     if (feature) {
@@ -130,10 +133,12 @@ const MapContainer = ({ initialLocation, markers, setVisibleStations, changeStat
 
         changeStationInfo(feature.properties.code)
       }
+
+      setTimeout(() => { handleViewChange() }, 1100)
     } else {
       setPopupInfo(null)
       changeStationInfo(null)
-      setpopupMarkerInfo(null)
+      setPopupMarkerInfo(null)
     }
   }
 
@@ -168,7 +173,7 @@ const MapContainer = ({ initialLocation, markers, setVisibleStations, changeStat
           <Layer {...clusterLayer} />
           <Layer {...clusterCountLayer} />
           <Layer {...stationLayer} />
-          
+
           {popupInfo && (
             <Popup
               tipSize={5}
@@ -184,8 +189,7 @@ const MapContainer = ({ initialLocation, markers, setVisibleStations, changeStat
             </Popup>
           )}
 
-          <Pin markers={markers} changeViewport={setViewport} viewport={viewport} setpopupMarkerInfo={setpopupMarkerInfo}/>
-
+          <Pin markers={markers} changeViewport={setViewport} viewport={viewport} setPopupMarkerInfo={setPopupMarkerInfo} />
 
           {popupMarkerInfo && (
             <Popup
@@ -194,16 +198,20 @@ const MapContainer = ({ initialLocation, markers, setVisibleStations, changeStat
               longitude={popupMarkerInfo.long}
               latitude={popupMarkerInfo.lat}
               closeOnClick={true}
-              onClose={setpopupMarkerInfo}
+              onClose={setPopupMarkerInfo}
               closeButton={false}
+              offsetTop={-35}
             >
-              <div
-                style={{cursor:'pointer', color:'purple'}}
-                onMouseLeave={() => setpopupMarkerInfo(null)}
+              <Button
+                variant="white"
+                className="text-warning m-0"
+                onMouseLeave={() => setPopupMarkerInfo(null)}
                 onClick={() => {
                   dispatch(deleteBookmark({ email: user.email, id: popupMarkerInfo.code }))
                 }}
-              >Remove</div>
+              >
+                Remove
+              </Button>
             </Popup>
           )}
 
@@ -213,6 +221,7 @@ const MapContainer = ({ initialLocation, markers, setVisibleStations, changeStat
           onViewportChange={handleViewportChange}
           mapboxApiAccessToken={MAPBOX_TOKEN}
           position="top-right"
+          countries="au"
         />
       </MapGL>
     </>

@@ -3,6 +3,7 @@ import {
   ListGroup,
   Button
 } from 'react-bootstrap'
+import { formatPrice } from '../utils/Helpers'
 
 import { useHistory } from 'react-router-dom'
 import Bookmark from './Bookmark.js'
@@ -14,7 +15,7 @@ const StationInfoCard = ({ stationInfo }) => {
     return (
       <ListGroup.Item className="px-0" key={priceData._id}>
         {priceData.fueltype}
-        <span className="float-end">${priceData.price}</span>
+        <span className="float-end">${formatPrice(priceData.price)}</span>
       </ListGroup.Item>
     )
   })
@@ -23,8 +24,10 @@ const StationInfoCard = ({ stationInfo }) => {
     <>
       <div className="station-info-card p-3">
         <div className="bg-white rounded shadow-sm p-4">
-          <h5 className="fw-bold">{stationInfo?.name}</h5>
-          <Bookmark station={stationInfo}/>
+          <div className="d-flex justify-content-between align-items-center mb-3">
+            <h5 className="fw-bold m-0">{stationInfo?.name}</h5>
+            <Bookmark station={stationInfo}/>
+          </div>
           
           <p className="text-muted small">{stationInfo?.address}</p>
 

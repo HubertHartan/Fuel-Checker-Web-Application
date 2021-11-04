@@ -2,14 +2,9 @@ import React from 'react'
 import {
   Card
 } from 'react-bootstrap'
+import { formatPrice } from '../utils/Helpers'
 
 const MetricCard = ({ title, figure }) => {
-  const formatPrice = (price) => {
-    if (!price) return '...'
-    let formattedPrice = (price / 100).toFixed(3)
-    return formattedPrice
-  }
-
   return (
     <>
       <Card className="border-0 shadow-sm">

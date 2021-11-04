@@ -19,7 +19,7 @@ body {
 }
 
 .welcome-hero {
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://source.unsplash.com/-ebVTh022nM/1600x900');
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://fuel-checker.herokuapp.com/header-splash.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -38,6 +38,9 @@ body {
   z-index: 1;
 }
 
-.test{
-	margin-left: 1000px;
+.hero-search-container {
+  .mapboxgl-ctrl-geocoder {
+    width: 100%;
+    max-width: 100%;
+  }
 }

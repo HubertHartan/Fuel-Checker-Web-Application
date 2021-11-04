@@ -3,6 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
+const cron = require('node-cron')
 
 const apiRouter = require('./controllers/api')
 const fuelApiController = require('./controllers/fuelApi')
@@ -11,7 +12,7 @@ const appRouter =  require('./controllers/appApi')
 const middleware = require('./utils/middleware')
 
 const app = express()
-// const fuelAPI = new fuelApiController()
+const fuelAPI = new fuelApiController()
 
 app.use(cors())
 app.use(express.json())
@@ -36,6 +37,10 @@ const doConnect = async () => {
 
 doConnect()
 
-// fuelAPI.updateFuelData();
+// Sync with the Fuel API every hour
+cron.schedule('0 * * * *', () => {
+  console.log('Running Fuel API update task')
+  fuelAPI.updateFuelData()
+})
 
 module.exports = app
