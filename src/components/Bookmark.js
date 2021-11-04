@@ -7,8 +7,6 @@ import {
   Button
 } from 'react-bootstrap'
 
-// TODO: Update bookmark icon
-
 export default function Bookmark({ station }) {
   const { user, isAuthenticated } = useAuth0()
   const dispatch = useDispatch()

@@ -3,6 +3,7 @@ import {
   ListGroup,
   Button
 } from 'react-bootstrap'
+import { formatPrice } from '../utils/Helpers'
 
 import { useHistory } from 'react-router-dom'
 import Bookmark from './Bookmark.js'
@@ -14,7 +15,7 @@ const StationInfoCard = ({ stationInfo }) => {
     return (
       <ListGroup.Item className="px-0" key={priceData._id}>
         {priceData.fueltype}
-        <span className="float-end">${priceData.price}</span>
+        <span className="float-end">${formatPrice(priceData.price)}</span>
       </ListGroup.Item>
     )
   })
