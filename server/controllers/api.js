@@ -4,6 +4,8 @@ const GeoJSON = require('geojson')
 const Price = require('../models/prices')
 const Station = require('../models/stations')
 
+const stats = require('../utils/statistics')
+
 const apiRouter = express.Router()
 
 // Get list of all prices
@@ -56,9 +58,9 @@ apiRouter.get('/api/metrics/fuel/:fueltype', (req, res) => {
     fueltype: req.params.fueltype
   }).then(prices => {
     if (prices.length > 0) {
-      const average = prices.reduce((total, next) => total + next.price, 0) / prices.length
-      const min = prices.reduce((prev, current) => (prev.price < current.price) ? prev : current)
-      const max = prices.reduce((prev, current) => (prev.price > current.price) ? prev : current)
+      const average = stats.getAveragePrice(prices)
+      const min = stats.getMinPrice(prices)
+      const max = stats.getMaxPrice(prices)
   
       res.json({
         average,
