@@ -10,32 +10,23 @@ const users = require('../models/users')
  
 const api = supertest(app)
 
-const sampleData =  async (fileName) => {
-  const rawData = fs.readFileSync(fileName)
-  const data = JSON.parse(rawData)
-
-  // use a for loop rather than map because we want await
-  for(let i=0; i<data.users.length; i++) {
-    const record = data.users[i]
-    const l = new users(record)
-    await l.save() 
-  }
-}
-
 describe('api', () => {
 
   test('Expecting Status 200', async () => {
-    try {
-      await api.get('/')
-        .expect(200)
-    } catch (error) {
-      console.log(error)
-    }  
+      await api.get('/api/prices')
+      .expect(200);
+      
   })
 
   test('Simple test expecting page to be JSON', async () => {
     await api.get('/')
       .expect('Content-Type', 'application/json; charset=utf-8')
   })
+
+  afterAll(async () => {
+    await new Promise(resolve => setTimeout(() => resolve(), 500)); // avoid jest open handle error
+    mongoose.connection.close()
+  });
+  
 
 })
