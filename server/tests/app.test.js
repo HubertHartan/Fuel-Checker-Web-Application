@@ -12,11 +12,16 @@ const api = supertest(app)
 
 describe('api', () => {
 
-  test('Expecting Status 200', async () => {
+  test('The Prices API is reachable', async () => {
       await api.get('/api/prices')
       .expect(200);
-      
   })
+
+  
+  test('The Station API is reachable', async () => {
+    await api.get('/api/stations')
+    .expect(200);
+})
 
   test('Simple test expecting page to be JSON', async () => {
     await api.get('/')
