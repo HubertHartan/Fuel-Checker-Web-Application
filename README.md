@@ -15,7 +15,89 @@ This project contains both the frontend and backend code for our Fuel Tracking W
 
 ### Repository Structure
 
-TBD
+    ├── public        ├── favicon.ico
+    ├			      ├── fuel.png
+	├			      ├── header-splash.jpg
+	├ 			      ├── index.html
+	├			      ├── logo192.png
+ 	├			      ├── logo512.png
+	├			      ├── manifest.json
+	├			      └── robots.txt
+	├
+	├── SCREENSHOTS   ├── Wireframes
+	├                 ├── DashboardPage.JPG
+	├                 ├── MapPage.JPG
+	├                 ├── StationsPage.JPG
+	├
+    ├── server        ├── controllers         ├── api.js
+    ├                                         ├── appApi.js
+    ├                                         ├── fuelApi.js
+	├                                         └── userApi.js	
+	├
+    ├                 ├── models			  ├── graph.js
+    ├                                         ├── metrics.js
+    ├                                         ├── prices.js
+    ├                                         ├── stations.js
+    ├                                         └── users.js
+	├
+	├                 ├── tests			  	  ├── app.test.js
+	├
+    ├                 ├── utils				  ├── middleware.js
+    ├                                         └── statistics.js
+	├
+	├                 ├── app.js
+	├                 ├── sample.json
+	├                 └── server.js
+    ├
+    ├
+    ├── src           ├── components          ├── Bookmark.js
+    ├                                         ├── Dashboard.js
+	├                                         ├── Dashboard.tests.js
+	├                                         ├── FuelGraph.js
+	├                                         ├── Map.js
+	├                                         ├── MapContainer.js
+	├                                         ├── MetricCard.js
+	├                                         ├── Navigation.js
+	├                                         ├── Pin.js
+	├                                         ├── StationInfoCard.js
+	├                                         ├── StationList.js
+	├                                         ├── StationListItem.js
+	├                                         └── StationTable.js              
+    ├
+    ├                 ├── pages               ├── GraphPage.js
+    ├                                         └── StationInfoPage.js
+    ├
+	├                 ├── reducers            ├── userReducer.js
+	├
+	├                 ├── sass                ├── _variables.scss
+    ├                                         └── App.scss
+	├
+	├                 ├── services            ├── price.js
+    ├                                         ├── station.tests.js
+	├                                         ├── station.js
+	├                                         └── user.js
+	├
+	├                 ├── utils               ├── Helpers.js
+    ├                                         └── Layers.js
+	├
+    ├                 ├── App.js
+    ├                 ├── App.test.js
+    ├                 ├── index.js
+    ├                 ├── reportWebVitals.js
+    ├                 ├── setupTests.js
+    ├                 └── store.js
+    ├             
+    ├── .eslintignore
+    ├── .eslintrc.js
+    ├── .gitignore
+	├── craco.config.js
+	├── DEPLOYMENT.md
+    ├── LICENSE
+    ├── package.json
+    ├── Procfile
+    ├── README.md
+    └── yarn.lock
+   
    
 
 
