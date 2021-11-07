@@ -11,6 +11,8 @@ Fuel-checker is a web application that keeps track of the fuel prices in the New
 
 The goal of this web application was to offer an alternative website for fuel tracking in the New South Wales are. We chose this goal as we found that the original fuel tracking website created by the New South Wales government wasn't created for desktop use. 
 
+
+
 ### Features 
 Throughout the development of this project we were able to implement all the features we planned for the MVP of this web application. Listed in the table below are the main features we listed for the MVP and their status (Have they been achieved? Were they achieved on time?)
 
@@ -22,6 +24,7 @@ Throughout the development of this project we were able to implement all the fea
 | Searching Stations by Location | Achieved on time by the allocated milestone date (Week 11). |
 | Bookmark Stations | Achieved on time by the allocated milestone date (Week 11).|
 | Fuel Price Graphs | Achieved on time by the allocated milestone date (Week 11). |
+
 
 
 ### Repository Structure
@@ -138,6 +141,7 @@ Throughout the development of this project we were able to implement all the fea
 | [`mongoose`](https://mongoosejs.com/)    | Provides a straight-forward, schema-based solution to model application data. |
 
 
+
 ### Custom Components
 
 #### [Bookmark](src/components/Bookmark.js)
@@ -174,6 +178,7 @@ Item Component - Specific stations in the lsit
 Table Component - Displays the list of stations in table form
 
 
+
 ### Pages
 
 #### [DashboardPage](src/components/DashboardPage.js)
@@ -190,6 +195,7 @@ Displays the user profile, including all their bookmarked stations.
 
 #### [StationInfoPage](src/components/StationInfoPage.js)
 Displays the address of the chosen petrol station as well as all the prices of the available fuel in said location.
+
 
 
 ### Team Members & Contributions
