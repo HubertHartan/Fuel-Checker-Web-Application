@@ -19,7 +19,6 @@ import Dashboard from './components/Dashboard'
 import StationTable from './components/StationTable'
 
 // Reducers
-=======
 import Profile from './components/Profile'
 
 import { initializeBookmarks } from './reducers/userReducer'
