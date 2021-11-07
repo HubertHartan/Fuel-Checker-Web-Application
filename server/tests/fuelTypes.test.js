@@ -21,7 +21,17 @@
    test('95', async () => {
 
     const response = await api.get('/api/prices/fuel/95')
-    expect(response.body).toHaveReturned()
+    .expect(200);
+  })
+
+  test('98', async () => {
+     await api.get('/api/prices/fuel/98')
+     .expect(200);
+   })
+   
+   test('Diesel', async () => {
+    const response = await api.get('/api/prices/fuel/Diesel')
+    .expect(200);
   })
    
  
