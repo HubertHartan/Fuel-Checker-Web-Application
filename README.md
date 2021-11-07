@@ -10,7 +10,21 @@ Fuel-checker is a web application that keeps track of the fuel prices in the New
 
 The goal of this web application was to offer an alternative website for fuel tracking in the New South Wales are. We chose this goal as we found that the original fuel tracking website created by the New South Wales government wasn't created for desktop use. 
 
+Throughout the development of this project we were able to implement the features we planned for this MVP. 
 
+
+### Features
+|Feautres|Status|
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Map & List view for Petrol Stations| Achieved in the allocated milestone date|
+| [`react-router-dom`](https://github.com/remix-run/react-router)     | React Library that allows for dynamic routing. |
+| [`react-dom`](https://reactjs.org/docs/react-dom.html)    | A package that provides DOM-specific methods that can be used at the top level of an app. |
+| [`react-bootstrap`](https://react-bootstrap.github.io/)    | Popular frontend framework. |
+| [`axios`](https://axios-http.com/)    | A simple promise based HTTP client for the browser and node.js. |
+| [`react-markdown`](https://github.com/remarkjs/react-markdown)    | Markdown component for React using remark. |
+| [`express`](http://expressjs.com/)    | A minimal and flexible Node.js web application framework. |
+
+ 
 
 
 
