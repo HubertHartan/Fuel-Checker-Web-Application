@@ -45,8 +45,7 @@ Throughout the development of this project we were able to implement all the fea
     ├                                         ├── fuelApi.js
 	├                                         └── userApi.js	
 	├
-    ├                 ├── models              ├── graph.js
-    ├                                         ├── metrics.js
+    ├                 ├── models              ├── metrics.js
     ├                                         ├── prices.js
     ├                                         ├── stations.js
     ├                                         └── users.js
@@ -62,10 +61,8 @@ Throughout the development of this project we were able to implement all the fea
     ├
     ├
     ├── src           ├── components          ├── Bookmark.js
-    ├                                         ├── Dashboard.js
-	├                                         ├── Dashboard.tests.js
+    ├                                         ├── FuelDropdown.js
 	├                                         ├── FuelGraph.js
-	├                                         ├── Map.js
 	├                                         ├── MapContainer.js
 	├                                         ├── MetricCard.js
 	├                                         ├── Navigation.js
@@ -75,7 +72,11 @@ Throughout the development of this project we were able to implement all the fea
 	├                                         ├── StationListItem.js
 	├                                         └── StationTable.js              
     ├
-    ├                 ├── pages               ├── GraphPage.js
+    ├                 ├── pages               ├── DashboardPage.js
+	├                                         ├── DashboardPage.tests.js
+	├                                         ├── GraphPage.js
+	├                                         ├── MapPage.js
+	├                                         ├── ProfilePage.js
     ├                                         └── StationInfoPage.js
     ├
 	├                 ├── reducers            ├── userReducer.js
@@ -164,10 +165,10 @@ Pin Component - Represents petrol stations on the map
 Card Component - Shows specific petrol station information
 
 #### [StationList](src/components/StationList.js)
-List Component - 
+List Component - List of stations
 
 #### [StationListItem](src/components/StationListItem.js)
-Item Component - 
+Item Component - Specific stations in the lsit
 
 #### [StationTable](src/components/StationTable.js)
 Table Component - Displays the list of stations in table form
@@ -176,14 +177,19 @@ Table Component - Displays the list of stations in table form
 ### Pages
 
 #### [DashboardPage](src/components/DashboardPage.js)
+The landing page of the web application. Shows the recent metrics of specific fuel types. Additionally has a search bar to search petrol stations near the specified location.
 
 #### [GraphPage](src/components/GraphPage.js)
+Displays the recent fuel trends in graph form. Users can change the fuel type to display on a graph.
 
 #### [MapPage](src/components/MapPage.js)
+Contains the map where all petrol stations at NSW is displayed.
 
 #### [ProfilePage](src/components/ProfilePage.js)
+Displays the user profile, including all their bookmarked stations.
 
 #### [StationInfoPage](src/components/StationInfoPage.js)
+Displays the address of the chosen petrol station as well as all the prices of the available fuel in said location.
 
 
 ### Team Members & Contributions
