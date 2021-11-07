@@ -113,9 +113,21 @@ This project contains both the frontend and backend code for our Fuel Tracking W
 | [`express`](http://expressjs.com/)    | A minimal and flexible Node.js web application framework. |
 | [`cors`](https://github.com/expressjs/cors)    | A node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options. |
 | [`auth0-react`](https://auth0.com/)    | Third-party authentication and authorization platform. |
+| [`react-map-gl`](https://visgl.github.io/react-map-gl/) | A suite of components designed to provide a React API for Mapbox GL JS-compatible libraries. |
 | [`react-map-gl-geocoder`](https://www.npmjs.com/package/react-map-gl-geocoder)    | React wrapper for mapbox-gl-geocoder for use with react-map-gl. |
+| [`recharts`](https://recharts.org/en-US/)    | A composable charting library built on React components. |
+| [`node-cron`](https://www.npmjs.com/package/node-cron)    | A tiny task scheduler in pure JavaScript for node.js based on GNU crontab. |
+| [`express`](https://expressjs.com/)    | A minimal and flexible Node.js web application framework. |
+| [`bcrypt`](https://www.npmjs.com/package/bcrypt)    | A library to help hash passwords. |
+| [`jsonwebtoken`](https://www.npmjs.com/package/jsonwebtoken)    | An implementation of Json Web Tokens. |
+| [`sass`](https://sass-lang.com/)    | A stable, and powerful professional grade CSS extension . |
+| [`redux`](https://redux.js.org/)    | A predictable state container for JS Apps. |
+| [`moment`](https://momentjs.com/)    | A library that parses, validate, manipulate and display dates and times in JavaScript. |
+| [`supertest`](https://www.npmjs.com/package/supertest)    | A module that provides high-level abstraction for testing HTTP. |
+| [`mongoose`](https://mongoosejs.com/)    | Provides a straight-forward, schema-based solution to model application data. |
 
-TBD
+
+
 
 ### Project Status
 
