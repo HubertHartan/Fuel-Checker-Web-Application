@@ -14,18 +14,17 @@ import './sass/App.scss'
 
 // Components
 import Navigation from './components/Navigation'
-import Map from './components/Map'
-import Dashboard from './components/Dashboard'
 import StationTable from './components/StationTable'
 
 // Reducers
-import Profile from './components/Profile'
-
 import { initializeBookmarks } from './reducers/userReducer'
 
 // Pages
+import DashboardPage from './pages/DashboardPage'
 import GraphPage from './pages/GraphPage'
 import StationInfoPage from './pages/StationInfoPage'
+import ProfilePage from './pages/ProfilePage'
+import MapPage from './pages/MapPage'
 
 function App() {
   const [stations, setStations] = useState([])
@@ -71,11 +70,11 @@ function App() {
       <Switch>
           
         <Route path="/map">
-          <Map stations={stations} />
+          <MapPage stations={stations} />
         </Route>
 
         <Route path="/profile">
-          <Profile />
+          <ProfilePage />
         </Route>
 
         <Route path="/stations/:code">
@@ -90,7 +89,7 @@ function App() {
         </Route>
 
         <Route path="/">
-          <Dashboard fuelType={fuelType} setFuelType={setFuelType} metrics={metrics} />
+          <DashboardPage fuelType={fuelType} setFuelType={setFuelType} metrics={metrics} />
         </Route>
         
       </Switch>

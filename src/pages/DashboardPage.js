@@ -8,12 +8,12 @@ import { useHistory } from 'react-router-dom'
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
 
 // Components
-import MetricCard from './MetricCard'
-import FuelDropdown from './FuelDropdown'
+import MetricCard from '../components/MetricCard'
+import FuelDropdown from '../components/FuelDropdown'
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZmx5bm50ZXMiLCJhIjoiY2tneDAwZ2ZkMDE2azJ0bzM1MG15N3d1cyJ9.LHpIlA-UNOCFXjFucg2AQg'
 
-const Dashboard = ({ fuelType, setFuelType, metrics }) => {
+const DashboardPage = ({ fuelType, setFuelType, metrics }) => {
   const history = useHistory()
 
   const getGeoLocation = () => {
@@ -98,4 +98,4 @@ const Dashboard = ({ fuelType, setFuelType, metrics }) => {
   )
 }
 
-export default Dashboard
+export default DashboardPage

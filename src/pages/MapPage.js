@@ -8,13 +8,15 @@ import { useLocation } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useSelector } from 'react-redux'
 
+// Services
 import stationService from '../services/stations'
 
-import MapContainer from './MapContainer'
-import StationList from './StationList'
-import StationInfoCard from './StationInfoCard'
+// Components
+import MapContainer from '../components/MapContainer'
+import StationList from '../components/StationList'
+import StationInfoCard from '../components/StationInfoCard'
 
-const Map = () => {
+const MapPage = () => {
   const location = useLocation()
   const {isAuthenticated } = useAuth0()
   const [markers, setMarkers] = useState()
@@ -60,4 +62,4 @@ const Map = () => {
   )
 }
 
-export default Map
+export default MapPage

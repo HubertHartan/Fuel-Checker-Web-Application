@@ -1,7 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useSelector } from 'react-redux'
-import StationListItem from './StationListItem'
 import Bookmark from '../components/Bookmark'
 import {
   Row,
@@ -9,8 +8,11 @@ import {
   Col,
   ListGroup
 } from 'react-bootstrap'
+
+// Components
+import StationListItem from '../components/StationListItem'
   
-export default function Profile() {
+export default function ProfilePage() {
   const { user } = useAuth0()
   const bookmarks = useSelector(state => state)
   const [, setbook] = useState(bookmarks)
