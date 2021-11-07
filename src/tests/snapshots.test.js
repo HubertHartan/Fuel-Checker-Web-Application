@@ -7,6 +7,8 @@
  import fs from 'fs'
 import DashboardPage from '../pages/DashboardPage'
 import MetricCard from '../components/MetricCard'
+import FuelGraph from '../components/FuelGraph'
+import StationList from '../components/StationList'
  
  /**
   * Read sample data for testing
@@ -17,7 +19,7 @@ import MetricCard from '../components/MetricCard'
  describe("Snapshot Tests", () => {
  
 
-   test('DashboardPage content', () => {
+   test('DashboardPage Snapshot', () => {
     const fuelType = "E10" 
     const setFuelType = "95" 
     const metrics = 110.1
@@ -25,12 +27,10 @@ import MetricCard from '../components/MetricCard'
     const component = render(
       <DashboardPage fuelType={fuelType} setFuelType={setFuelType} metrics={metrics}/>
     )
-
-    // look for some content
     expect(component).toMatchSnapshot()
   })
 
-  test('MetricCard content', () => {
+  test('MetricCard Snapshot', () => {
     const title = "Title" 
     const figure = 120.5 
     const prevFigure = 110.1
@@ -38,12 +38,27 @@ import MetricCard from '../components/MetricCard'
     const component = render(
       <MetricCard title={title} figure={figure} prevFigure={prevFigure}/>
     )
-
-    // look for some content
     expect(component).toMatchSnapshot()
   })
 
+  test('FuelGraph Snapshot', () => {
+    const fuelType = "E10" 
+    const data = 120.5 
 
+    const component = render(
+      <FuelGraph fuelType={fuelType} data={data}/>
+    )
+    expect(component).toMatchSnapshot()
+  })
+
+  test('StationList Snapshot', () => {
+    const stations = "Ready?" 
+
+    const component = render(
+      <StationList stations={stations}/>
+    )
+    expect(component).toMatchSnapshot()
+  })
 
  })
  
