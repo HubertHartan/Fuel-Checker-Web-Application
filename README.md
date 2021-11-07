@@ -203,6 +203,7 @@ As the Backend Specialist, I built out many of the routes in the API server, inc
 [Trideep Lal Das](https://github.com/TrideepLD)
 
 [Hubert Hartan](https://github.com/HubertHartan) 
+As the Frontend Specialist, I worked on the display of several of the pages. The major one being the graph page. I created the graph component as well as the dropdown used to change fuel types. Additionally, I worked on refactoring code and removing any redundant code present in any of the files. Lastly, as the Documentarian, it was my responsibility to write all the relevant documentation involved for the project.
 
 
 ### Future of the Project
