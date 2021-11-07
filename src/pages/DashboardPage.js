@@ -81,16 +81,16 @@ const DashboardPage = ({ fuelType, setFuelType, metrics }) => {
         </Row>
         <Row className="pb-3">
           <Col>
-            <MetricCard title="Average Price" figure={metrics?.average} />
+            <MetricCard title="Average Price" figure={metrics?.average} prevFigure={metrics?.prevAverage} />
           </Col>
           <Col>
-            <MetricCard title="Lowest Price" figure={metrics?.min?.price} />
+            <MetricCard title="Lowest Price" figure={metrics?.min?.price} prevFigure={metrics?.prevMin} />
           </Col>
           <Col>
-            <MetricCard title="Highest Price" figure={metrics?.max?.price} />
+            <MetricCard title="Highest Price" figure={metrics?.max?.price} prevFigure={metrics?.prevMax} />
           </Col>
           <Col>
-            <MetricCard title="Range" figure={metrics?.range} />
+            <MetricCard title="Range" figure={metrics?.range} prevFigure={metrics?.prevRange} />
           </Col>
         </Row>
       </Container>

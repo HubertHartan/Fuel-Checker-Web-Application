@@ -55,19 +55,39 @@ apiRouter.get('/api/stations/:stationcode', (req, res) => {
 
 // Get fuel price metrics
 apiRouter.get('/api/metrics/fuel/:fueltype', (req, res) => {
+  let prices, metric
+
   Price.find({
     fueltype: req.params.fueltype
-  }).then(prices => {
+  }).then(data => {
+    prices = data 
+
+    // Get metric from 24 hours ago
+    return Metric.find({
+      fueltype: req.params.fueltype
+    }).sort('-timestamp').limit(24)
+  }).then(data => {
+    metric = data[23]
+
     if (prices.length > 0) {
       const average = stats.getAveragePrice(prices)
       const min = stats.getMinPrice(prices)
       const max = stats.getMaxPrice(prices)
+
+      const prevAverage = metric.average
+      const prevMin = metric.min
+      const prevMax = metric.max
+      const prevRange = metric.range
 
       res.json({
         average,
         min,
         max,
         range: max.price - min.price,
+        prevAverage,
+        prevMin,
+        prevMax,
+        prevRange
       })
     } else {
       res.status(500).send('Internal Server Error')
