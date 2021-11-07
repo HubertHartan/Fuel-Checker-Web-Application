@@ -199,6 +199,7 @@ In our team we managed communication through regular meetings and a group chat. 
 As the Backend Specialist, I built out many of the routes in the API server, including the route generating GeoJSON to be ingested by the Mapbox interactive map. I also built the service that fetches data from the NSW Gov Fuel API, transforms the information and stores it in the MongoDB store. My other contributions included developing the interactive Mapbox component to display fuel stations, prices and other information. I also worked on the dashboard, station list and trends pages. 
 
 [Nipun Shrestha - 45549192](https://github.com/nipunshrestha)
+As a Data and Visulaisation Specialist, I managed the user's data state in the application using redux. I also implemented the bookmark functionality, which allowed users to save their favourite fuel stations. I was also able to design API endpoints that allowed the bookmark data to be store and collected from the database. I also added features such as search functionality and displaying bookmarks to the interactive Mapbox componenet. Lastly, I also worked on the dashboard and the profile pages. 
 
 [Trideep Lal Das](https://github.com/TrideepLD)
 
