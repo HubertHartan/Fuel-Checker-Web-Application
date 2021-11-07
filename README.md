@@ -38,10 +38,30 @@ Throughout the development of this project we were able to implement all the fea
 	├                 ├── manifest.json
 	├                 └── robots.txt
 	├
-	├── SCREENSHOTS   ├── Wireframes
-	├                 ├── DashboardPage.JPG
-	├                 ├── MapPage.JPG
+	├── SCREENSHOTS   ├── DashboardPage1.JPG
+	├                 ├── DashboardPage2.JPG
+	├                 ├── DashboardPage3.JPG
+	├                 ├── DashboardPageSearch.JPG
+	├                 ├── DashboardPageSearchResult.JPG
+	├                 ├── GraphPage1.JPG
+	├                 ├── GraphPage2.JPG
+	├                 ├── GraphPage3.JPG
+	├                 ├── Login.JPG
+	├                 ├── MapPage1.JPG
+	├                 ├── MapPage2.JPG
+	├                 ├── MapPage3.JPG
+	├                 ├── MapPageBookmarked.JPG
+	├                 ├── NavBar.JPG
+	├                 ├── ProfilePage.JPG
+	├                 ├── README.MD
+	├                 ├── StationPage1.JPG
+	├                 ├── StationPage2.JPG
 	├                 ├── StationsPage.JPG
+	├                 ├── StationsPagePaginations1.JPG
+	├                 ├── StationsPagePaginations2.JPG
+	├                 ├── StationsPagePaginations3.JPG
+	├                 ├── StationsPageSearch.JPG
+	├                 └── UserDropDown.JPG			
 	├
     ├── server        ├── controllers         ├── api.js
     ├                                         ├── appApi.js
