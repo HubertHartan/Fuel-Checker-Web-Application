@@ -34,15 +34,15 @@ This project contains both the frontend and backend code for our Fuel Tracking W
     ├                                         ├── fuelApi.js
 	├                                         └── userApi.js	
 	├
-    ├                 ├── models			  ├── graph.js
+    ├                 ├── models              ├── graph.js
     ├                                         ├── metrics.js
     ├                                         ├── prices.js
     ├                                         ├── stations.js
     ├                                         └── users.js
 	├
-	├                 ├── tests			  	  ├── app.test.js
+	├                 ├── tests               ├── app.test.js
 	├
-    ├                 ├── utils				  ├── middleware.js
+    ├                 ├── utils               ├── middleware.js
     ├                                         └── statistics.js
 	├
 	├                 ├── app.js
