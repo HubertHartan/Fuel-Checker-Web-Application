@@ -37,7 +37,7 @@ const Navigation = () => {
                 <Nav.Link>Stations</Nav.Link>
               </LinkContainer>
               <LinkContainer to="/trends">
-                <Nav.Link>Fuel Trends</Nav.Link>
+                <Nav.Link>Trends</Nav.Link>
               </LinkContainer>
             </Nav>
 

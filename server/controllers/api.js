@@ -3,6 +3,7 @@ const GeoJSON = require('geojson')
 
 const Price = require('../models/prices')
 const Station = require('../models/stations')
+const Metric = require('../models/metrics')
 
 const stats = require('../utils/statistics')
 
@@ -36,14 +37,14 @@ apiRouter.get('/api/stations/:stationcode', (req, res) => {
   Station.aggregate(
     [
       {
-        $match: {code: req.params.stationcode}
+        $match: { code: req.params.stationcode }
       },
       {
         $lookup: {
-          from: "prices",
-          localField: "code",
-          foreignField: "stationcode",
-          as: "prices"
+          from: 'prices',
+          localField: 'code',
+          foreignField: 'stationcode',
+          as: 'prices'
         }
       }
     ]
@@ -61,7 +62,7 @@ apiRouter.get('/api/metrics/fuel/:fueltype', (req, res) => {
       const average = stats.getAveragePrice(prices)
       const min = stats.getMinPrice(prices)
       const max = stats.getMaxPrice(prices)
-  
+
       res.json({
         average,
         min,
@@ -71,6 +72,15 @@ apiRouter.get('/api/metrics/fuel/:fueltype', (req, res) => {
     } else {
       res.status(500).send('Internal Server Error')
     }
+  })
+})
+
+// Get fuel price history
+apiRouter.get('/api/history/fuel/:fueltype', (req, res) => {
+  Metric.find({
+    fueltype: req.params.fueltype
+  }).then(prices => {
+    res.json(prices)
   })
 })
 
