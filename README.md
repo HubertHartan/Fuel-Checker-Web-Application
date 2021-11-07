@@ -1,32 +1,27 @@
 # COMP3120: Advanced Web Development
-## Assignment 2
-### Fuel-Checker
+## Assignment 2: Fuel-Checker
 
 <p align="center">
   <img width="500px" src="public/fuel.png">
 </p>
 
+### Description
+
 Fuel-checker is a web application that keeps track of the fuel prices in the New South Wales area. Our target users are drivers or car owners in the state of New South Wales who require a one stop site to check all fuel prices. We made use of the data source provided by the [`New South Wales government`](https://api.nsw.gov.au/Product/Index/22).
 
 The goal of this web application was to offer an alternative website for fuel tracking in the New South Wales are. We chose this goal as we found that the original fuel tracking website created by the New South Wales government wasn't created for desktop use. 
 
-Throughout the development of this project we were able to implement the features we planned for this MVP. 
+### Features 
+Throughout the development of this project we were able to implement all the features we planned for the MVP of this web application. Listed in the table below are the main features we listed for the MVP and their status (Have they been achieved? Were they achieved on time?)
 
 
-### Features
 |Feautres|Status|
 | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Map & List view for Petrol Stations| Achieved in the allocated milestone date|
-| [`react-router-dom`](https://github.com/remix-run/react-router)     | React Library that allows for dynamic routing. |
-| [`react-dom`](https://reactjs.org/docs/react-dom.html)    | A package that provides DOM-specific methods that can be used at the top level of an app. |
-| [`react-bootstrap`](https://react-bootstrap.github.io/)    | Popular frontend framework. |
-| [`axios`](https://axios-http.com/)    | A simple promise based HTTP client for the browser and node.js. |
-| [`react-markdown`](https://github.com/remarkjs/react-markdown)    | Markdown component for React using remark. |
-| [`express`](http://expressjs.com/)    | A minimal and flexible Node.js web application framework. |
-
- 
-
-
+| Map & List view for Petrol Stations| Achieved on time by the allocated milestone date (Week 10).|
+| User Account Creation |  Achieved on time by the allocated milestone date (Week 10). Achieved by using auth0. |
+| Searching Stations by Location | Achieved on time by the allocated milestone date (Week 11). |
+| Bookmark Stations | Achieved on time by the allocated milestone date (Week 11).|
+| Fuel Price Graphs | Achieved on time by the allocated milestone date (Week 11). |
 
 
 ### Repository Structure
@@ -114,7 +109,6 @@ Throughout the development of this project we were able to implement the feature
     ├── README.md
     └── yarn.lock
    
-   
 
 
 ### Libraries
@@ -141,7 +135,6 @@ Throughout the development of this project we were able to implement the feature
 | [`moment`](https://momentjs.com/)    | A library that parses, validate, manipulate and display dates and times in JavaScript. |
 | [`supertest`](https://www.npmjs.com/package/supertest)    | A module that provides high-level abstraction for testing HTTP. |
 | [`mongoose`](https://mongoosejs.com/)    | Provides a straight-forward, schema-based solution to model application data. |
-
 
 
 ### Custom Components
