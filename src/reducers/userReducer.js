@@ -8,7 +8,6 @@ const userReducer = (state = {}, action) => {
   case 'INIT_USER':
     return action.data
   case 'DELETE_BOOKMARK':
-    console.log(action.data)
     state.fuelStations = state.fuelStations.filter(station => station.code != action.data)
     return state
   default:
@@ -19,7 +18,7 @@ const userReducer = (state = {}, action) => {
 export const createBookmark = (content)=> {
   return async dispatch => {
     await userService.addNew(content)
-    // console.log(content)
+
     dispatch({
       type: 'NEW_BOOKMARK',
       data: content.fuelStation,

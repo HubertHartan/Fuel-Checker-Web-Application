@@ -80,7 +80,18 @@ apiRouter.get('/api/history/fuel/:fueltype', (req, res) => {
   Metric.find({
     fueltype: req.params.fueltype
   }).then(prices => {
-    res.json(prices)
+    if (prices && prices.length > 0) {
+      const formattedMetrics = prices.map(metric => {
+        return {
+          ...metric._doc,
+          date: new Date(metric.timestamp).toLocaleDateString('en-AU')
+        }
+      })
+
+      res.json(formattedMetrics)
+    } else {
+      return res.json()
+    }
   })
 })
 

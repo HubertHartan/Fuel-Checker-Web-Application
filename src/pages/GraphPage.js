@@ -15,7 +15,6 @@ const GraphPage = ({ fuelType, setFuelType }) => {
   useEffect(() => {
     stationService.getHistory(fuelType.type)
       .then(response => {
-        console.log(response)
         setFuelData(response)
       })
       .catch(error => {

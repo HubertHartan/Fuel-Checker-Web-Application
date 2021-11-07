@@ -7,7 +7,6 @@ import {
 import { useHistory } from 'react-router-dom'
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
 
-
 // Components
 import MetricCard from './MetricCard'
 import FuelDropdown from './FuelDropdown'

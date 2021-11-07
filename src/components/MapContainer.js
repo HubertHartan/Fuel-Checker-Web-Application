@@ -116,7 +116,6 @@ const MapContainer = ({ initialLocation, markers, setVisibleStations, changeStat
         })
       } else {
         // User clicked on a station
-        console.log(feature.properties)
         setPopupInfo({
           longitude: feature.properties.longitude,
           latitude: feature.properties.latitude,

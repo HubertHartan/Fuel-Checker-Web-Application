@@ -17,7 +17,6 @@ const StationInfoPage = () => {
   useEffect(() => {
     stationService.getStation(code)
       .then(response => {
-        console.log(response)
         setStation(response)
       })
       .catch(error => {

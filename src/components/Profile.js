@@ -14,7 +14,7 @@ export default function Profile() {
   const { user } = useAuth0()
   const bookmarks = useSelector(state => state)
   const [, setbook] = useState(bookmarks)
-  console.log(bookmarks)
+
   useEffect(() => {
     setbook(bookmarks)
   }, [bookmarks])  
