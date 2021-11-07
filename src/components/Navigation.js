@@ -56,7 +56,6 @@ const Navigation = () => {
                     <Dropdown.Menu align="end">
                       <Dropdown.Header>Hey, {user.name}</Dropdown.Header>
                       <Dropdown.Item onClick={()=>history.push('/profile')}>Profile</Dropdown.Item>
-                      <Dropdown.Item>Settings</Dropdown.Item>
                       <Dropdown.Divider />
                       <Dropdown.Item onClick={() => logout({ returnTo: window.location.origin })}>Log Out</Dropdown.Item>
                     </Dropdown.Menu>
