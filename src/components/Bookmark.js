@@ -12,7 +12,7 @@ export default function Bookmark({ station }) {
   const dispatch = useDispatch()
   const bookmarks = useSelector(state => state.fuelStations)
   
-  const [bookmarked, setbookmarked] = useState((bookmarks && bookmarks.filter(bookmark => bookmark.code === station.code).length > 0) ? true : false)
+  const [bookmarked, setbookmarked] = useState((bookmarks && bookmarks.filter(bookmark => bookmark.code === station?.code).length > 0) ? true : false)
 
   return (
     (bookmarked) ? (
