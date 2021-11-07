@@ -1,22 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import {
   Row,
   Container,
-  Col,
-  Dropdown,
+  Col
 } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
 
+
 // Components
 import MetricCard from './MetricCard'
+import FuelDropdown from './FuelDropdown'
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZmx5bm50ZXMiLCJhIjoiY2tneDAwZ2ZkMDE2azJ0bzM1MG15N3d1cyJ9.LHpIlA-UNOCFXjFucg2AQg'
 
-const Dashboard = ({ metrics, setFuelType }) => {
+const Dashboard = ({ fuelType, setFuelType, metrics }) => {
   const history = useHistory()
-
-  const [fuelName, setFuelName] = useState('E10')
 
   const getGeoLocation = () => {
     if (navigator.geolocation) {
@@ -31,9 +30,8 @@ const Dashboard = ({ metrics, setFuelType }) => {
     }
   }
 
-  const handleFuelChange = (fuel, name) => {
-    setFuelType(fuel)
-    setFuelName(name)
+  const handleFuelChange = (type, name) => {
+    setFuelType({ type, name })
   }
 
   useEffect(() => {
@@ -74,23 +72,11 @@ const Dashboard = ({ metrics, setFuelType }) => {
       </Container>
       <Container className="py-4 mt-2">
         <Row className="pb-3">
-		  <Col>
+          <Col>
             <div className="d-flex justify-content-between align-items-center">
               <h2 className="fw-bold">Dashboard</h2>
 
-              <Dropdown>
-                <Dropdown.Toggle variant="text" id="fuelSelect">
-                  <b>Fuel:</b> {fuelName}
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu>
-                  <Dropdown.Item onClick={() => handleFuelChange('E10', 'E10')}>E10</Dropdown.Item>
-                  <Dropdown.Item onClick={() => handleFuelChange('U91', '91')}>91</Dropdown.Item>
-                  <Dropdown.Item onClick={() => handleFuelChange('P95', '95')}>95</Dropdown.Item>
-                  <Dropdown.Item onClick={() => handleFuelChange('P98', '98')}>98</Dropdown.Item>
-                  <Dropdown.Item onClick={() => handleFuelChange('DL', 'Diesel')}>Diesel</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
+              <FuelDropdown fuelType={fuelType} handleDropdownChange={handleFuelChange} />
             </div>
           </Col>
         </Row>

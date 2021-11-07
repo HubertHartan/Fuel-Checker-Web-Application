@@ -17,5 +17,10 @@ const getMetric = (fuelType) => {
   return request.then(response => response.data)
 }
 
-const service = {getStations, getStation, getMetric}
+const getHistory = (fuelType) => {
+  const request = axios.get(`${baseUrl}/history/fuel/${fuelType}`)
+  return request.then(response => response.data)
+}
+
+const service = {getStations, getStation, getMetric, getHistory}
 export default service

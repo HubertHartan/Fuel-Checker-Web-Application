@@ -17,6 +17,8 @@ import Navigation from './components/Navigation'
 import Map from './components/Map'
 import Dashboard from './components/Dashboard'
 import StationTable from './components/StationTable'
+
+// Reducers
 import { initializeBookmarks } from './reducers/userReducer'
 
 // Pages
@@ -24,10 +26,12 @@ import GraphPage from './pages/GraphPage'
 import StationInfoPage from './pages/StationInfoPage'
 
 function App() {
-  
   const [stations, setStations] = useState([])
   const [metrics, setMetrics] = useState()
-  const [fuelType, setFuelType] = useState('E10')
+  const [fuelType, setFuelType] = useState({
+    type: 'E10',
+    name: 'E10'
+  })
 
   const { user, isAuthenticated } = useAuth0()
   
@@ -50,7 +54,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    stationService.getMetric(fuelType)
+    stationService.getMetric(fuelType.type)
       .then(response => {
         setMetrics(response)
       })
@@ -58,9 +62,6 @@ function App() {
         console.error(error)
       })
   }, [fuelType])
-
-
- 
 
   return (
     <>
@@ -80,11 +81,11 @@ function App() {
         </Route>
         
         <Route path="/trends">
-          <GraphPage/>   
+          <GraphPage fuelType={fuelType} setFuelType={setFuelType} />   
         </Route>
 
         <Route path="/">
-          <Dashboard setFuelType={setFuelType} metrics={metrics}/>
+          <Dashboard fuelType={fuelType} setFuelType={setFuelType} metrics={metrics} />
         </Route>
         
       </Switch>

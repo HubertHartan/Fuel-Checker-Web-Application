@@ -18,9 +18,9 @@ const FuelGraph = ({data, fuelName}) =>{
         <span className="d-block text-uppercase fw-bold text-black-50 small mb-3">Average {fuelName} Price</span>
         <ResponsiveContainer aspect={3}>    
           <LineChart data={data}>
-            <Line type="monotone" dataKey="price" stroke="#8884d8" />
+            <Line type="monotone" dataKey="average" stroke="#8884d8" />
             <CartesianGrid stroke="#ccc" />
-            <XAxis dataKey="date" />
+            <XAxis dataKey="timestamp" />
             <YAxis />
             <Tooltip/>
           </LineChart>
