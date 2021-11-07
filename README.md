@@ -74,6 +74,8 @@ Throughout the development of this project we were able to implement all the fea
     ├                                         └── users.js
 	├
 	├                 ├── tests               ├── app.test.js
+    ├                                         ├── fuelTypes.test.js
+    ├                                         └── stations.test.js
 	├
     ├                 ├── utils               ├── middleware.js
     ├                                         └── statistics.js
