@@ -178,7 +178,8 @@ Throughout the development of this project we were able to implement all the fea
 
 ### Team Members & Contributions
 
-[Flynn Tesoriero](https://github.com/Flynntes)
+[Flynn Tesoriero - 45621365](https://github.com/Flynntes)
+
 
 [Nipun Shrestha](https://github.com/nipunshrestha)
 
@@ -188,4 +189,4 @@ Throughout the development of this project we were able to implement all the fea
 
 
 ### Future of the Project
-The web application will require more polishing  
+In the future, a number of new features could be added to the project. One such feature could be transforming the application into a PWA, so that users can install the application on their device and save data offline. Another potential feature that could be added to the project could be notifications, allowing users to recieve a push notification when the fuel price changes at one of their bookmarked petrol stations.
