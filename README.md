@@ -16,13 +16,13 @@ This project contains both the frontend and backend code for our Fuel Tracking W
 ### Repository Structure
 
     ├── public        ├── favicon.ico
-    ├			      ├── fuel.png
-	├			      ├── header-splash.jpg
-	├ 			      ├── index.html
-	├			      ├── logo192.png
- 	├			      ├── logo512.png
-	├			      ├── manifest.json
-	├			      └── robots.txt
+    ├                 ├── fuel.png
+	├                 ├── header-splash.jpg
+	├                 ├── index.html
+	├                 ├── logo192.png
+ 	├                 ├── logo512.png
+	├                 ├── manifest.json
+	├                 └── robots.txt
 	├
 	├── SCREENSHOTS   ├── Wireframes
 	├                 ├── DashboardPage.JPG
