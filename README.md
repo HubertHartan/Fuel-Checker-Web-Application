@@ -1,15 +1,17 @@
 # COMP3120: Advanced Web Development
 ## Assignment 2
-### Fuel Tracking Web Applciation
+### Fuel-Checker
 
 <p align="center">
   <img width="500px" src="public/fuel.png">
 </p>
 
-A Web Application that allows users of NSW to view fuel prices near their area!
+Fuel-checker is a web application that keeps track of the fuel prices in the New South Wales area. Our target users are drivers or car owners in the state of New South Wales who require a one stop site to check all fuel prices. We made use of the data source provided by the [`New South Wales government`](https://api.nsw.gov.au/Product/Index/22).
+
+The goal of this web application was to offer an alternative website for fuel tracking in the New South Wales are. We chose this goal as we found that the original fuel tracking website created by the New South Wales government wasn't created for desktop use. 
 
 
-This project contains both the frontend and backend code for our Fuel Tracking Web Application. This entire project was created as an assignment for the unit COMP3120: Advanced Web Development. The project was built using [React JS](https://reactjs.org/).
+
 
 
 
@@ -127,11 +129,6 @@ This project contains both the frontend and backend code for our Fuel Tracking W
 | [`mongoose`](https://mongoosejs.com/)    | Provides a straight-forward, schema-based solution to model application data. |
 
 
-
-
-### Project Status
-
-The project is currently under development. Deployment of the web application will be done shortly.
 
 ### Custom Components
 
