@@ -187,15 +187,17 @@ Table Component - Displays the list of stations in table form
 
 
 ### Team Members & Contributions
+In our team we managed communication through regular meetings and a group chat. Using this we were able to plan and communicate about the priorities for the project and what to work on next. We also used GitHub Projects and Git Flow to manage tasks, features and general project management.
 
-[Flynn Tesoriero](https://github.com/Flynntes)
+[Flynn Tesoriero - 45621365](https://github.com/Flynntes)  
+As the Backend Specialist, I built out many of the routes in the API server, including the route generating GeoJSON to be ingested by the Mapbox interactive map. I also built the service that fetches data from the NSW Gov Fuel API, transforms the information and stores it in the MongoDB store. My other contributions included developing the interactive Mapbox component to display fuel stations, prices and other information. I also worked on the dashboard, station list and trends pages. 
 
-[Nipun Shrestha](https://github.com/nipunshrestha)
+[Nipun Shrestha - 45549192](https://github.com/nipunshrestha)
 
 [Trideep Lal Das](https://github.com/TrideepLD)
 
-[Hubert Hartan](https://github.com/HubertHartan)
+[Hubert Hartan](https://github.com/HubertHartan) 
 
 
 ### Future of the Project
-The web application will require more polishing  
+In the future, a number of new features could be added to the project. One such feature could be transforming the application into a PWA, so that users can install the application on their device and save data offline. Another potential feature that could be added to the project could be notifications, allowing users to recieve a push notification when the fuel price changes at one of their bookmarked petrol stations.
