@@ -39,21 +39,6 @@ describe('api', () => {
     await api.get('/api/prices/fuel/:fueltype')
     .expect(200);
   })
-  
-  test('There is a station with the code 972', async () => {
-    await api.get('/api/stations/972')
-    .expect(response => {console.log(response)})
-    .expect(200)  
-    expect(res => res.header['content-length']).not.toBe(0)
-  })
-
-  test('There is a station with the code 972', async () => {
-    await api.get('/api/stations/972')
-    .expect(response => {console.log(response)})
-    .expect(200)  
-    expect(res => res.header['content-length']).not.toBe(0)
-  })
-
 
   afterAll(async () => {
     await new Promise(resolve => setTimeout(() => resolve(), 500)); // avoid jest open handle error
