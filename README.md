@@ -15,7 +15,7 @@ The goal of this web application was to offer an alternative website for fuel tr
 Throughout the development of this project we were able to implement all the features we planned for the MVP of this web application. Listed in the table below are the main features we listed for the MVP and their status (Have they been achieved? Were they achieved on time?)
 
 
-|Feautres|Status|
+|Features|Status|
 | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Map & List view for Petrol Stations| Achieved on time by the allocated milestone date (Week 10).|
 | User Account Creation |  Achieved on time by the allocated milestone date (Week 10). Achieved by using auth0. |
@@ -139,25 +139,44 @@ Throughout the development of this project we were able to implement all the fea
 
 ### Custom Components
 
-[Dashboard](src/components/Dashboard.js)
+#### [Bookmark](src/components/Bookmark.js)
 
-[Map](src/components/Map.js)
+#### [FuelDropdown](src/components/FuelDropdown.js)
 
-[MapContainer](src/components/MapContainer.js)
+#### [FuelGraph](src/components/FuelGraph.js)
 
-[MetricCard](src/components/MetricCard.js)
+#### [MapContainer](src/components/MapContainer.js)
 
-[Navigation](src/components/Navigation.js)
+#### [MetricCard](src/components/MetricCard.js)
 
-[StationTable](src/components/StationTable.js)
+#### [Navigation](src/components/Navigation.js)
+
+#### [Pin](src/components/Pin.js)
+
+#### [StationInfoCard](src/components/StationInfoCard.js)
+
+#### [StationList](src/components/StationList.js)
+
+#### [StationListItem](src/components/StationListItem.js)
+
+#### [StationTable](src/components/StationTable.js)
 
 
 
-### Screens
+### Pages
 
-[GraphPage](src/components/GraphPage.js)
+#### [DashboardPage](src/components/DashboardPage.js)
 
-### Team Members
+#### [GraphPage](src/components/GraphPage.js)
+
+#### [MapPage](src/components/MapPage.js)
+
+#### [ProfilePage](src/components/ProfilePage.js)
+
+#### [StationInfoPage](src/components/StationInfoPage.js)
+
+
+### Team Members & Contributions
 
 [Flynn Tesoriero](https://github.com/Flynntes)
 
@@ -166,3 +185,7 @@ Throughout the development of this project we were able to implement all the fea
 [Trideep Lal Das](https://github.com/TrideepLD)
 
 [Hubert Hartan](https://github.com/HubertHartan)
+
+
+### Future of the Project
+The web application will require more polishing  
