@@ -4,15 +4,16 @@ import {
   Container,
   Nav,
   Button,
-  Dropdown
+  Dropdown,
 } from 'react-bootstrap'
+import { useHistory } from 'react-router-dom'
 import { DropletHalf } from 'react-bootstrap-icons'
 import { useAuth0 } from '@auth0/auth0-react'
 import { LinkContainer } from 'react-router-bootstrap'
 
 const Navigation = () => {
   const { user, isAuthenticated, isLoading, loginWithRedirect, logout } = useAuth0()
-
+  const history = useHistory()
   return (
     <>
       <Navbar bg="white" className="shadow-sm">
@@ -54,7 +55,7 @@ const Navigation = () => {
 
                     <Dropdown.Menu align="end">
                       <Dropdown.Header>Hey, {user.name}</Dropdown.Header>
-                      <Dropdown.Item>Profile</Dropdown.Item>
+                      <Dropdown.Item onClick={()=>history.push('/profile')}>Profile</Dropdown.Item>
                       <Dropdown.Item>Settings</Dropdown.Item>
                       <Dropdown.Divider />
                       <Dropdown.Item onClick={() => logout({ returnTo: window.location.origin })}>Log Out</Dropdown.Item>

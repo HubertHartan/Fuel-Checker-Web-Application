@@ -17,6 +17,8 @@ import Navigation from './components/Navigation'
 import Map from './components/Map'
 import Dashboard from './components/Dashboard'
 import StationTable from './components/StationTable'
+import Profile from './components/Profile'
+
 import { initializeBookmarks } from './reducers/userReducer'
 
 // Pages
@@ -71,10 +73,13 @@ function App() {
           <Map stations={stations} />
         </Route>
 
+        <Route path="/profile">
+          <Profile />
+        </Route>
+
         <Route path="/stations/:code">
           <StationInfoPage stations={stations} />
         </Route>
-
         <Route path="/stations">
           <StationTable stations={stations} />
         </Route>

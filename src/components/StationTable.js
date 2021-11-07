@@ -5,28 +5,21 @@ import {
   Row,
   Col
 } from 'react-bootstrap'
-import userService from '../services/user'
-import { useAuth0 } from '@auth0/auth0-react'
+import { useHistory } from 'react-router-dom'
 
 const Navigation = ({ stations }) => {
-  const { user, isAuthenticated } = useAuth0()
+  const history = useHistory()
+  const handleClick = (e,code) => {
+    e.preventDefault()
+    history.push(`/stations/${code}`)
+  }
+
   const listOfStations = stations.map((station) => {
     return (
-      <tr key={station.code}>
+      <tr onClick={(e) => handleClick(e,station.code)} key={station.code}>
         <td>{station.brand}</td>
         <td>{station.name}</td>
         <td>{station.state}</td>
-        <td>{<button onClick={() => {
-          if (isAuthenticated) {
-            const newPlace = {
-              email: user.email,
-              name: user.name,
-              fuelStations: station
-            }
-            console.log(newPlace)
-            userService.addNew(newPlace).catch('error')
-          }
-        }}>Add</button>}</td>
       </tr>
     )
   })
@@ -43,7 +36,6 @@ const Navigation = ({ stations }) => {
                   <th>Brand</th>
                   <th>Name</th>
                   <th>State</th>
-                  <th>Add</th>
                 </tr>
               </thead>
               <tbody>
