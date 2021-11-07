@@ -181,7 +181,7 @@ Throughout the development of this project we were able to implement all the fea
 [Flynn Tesoriero - 45621365](https://github.com/Flynntes)
 
 
-[Nipun Shrestha](https://github.com/nipunshrestha)
+[Nipun Shrestha - 45549192](https://github.com/nipunshrestha)
 
 [Trideep Lal Das](https://github.com/TrideepLD)
 
