@@ -206,7 +206,7 @@ As the Backend Specialist, I built out many of the routes in the API server, inc
 
 [Nipun Shrestha - 45549192](https://github.com/nipunshrestha)
 
-As a Data and Visulaisation Specialist, I managed the user's data state in the application using redux. I also implemented the bookmark functionality, which allowed users to save their favourite fuel stations. I was also able to design API endpoints that allowed the bookmark data to be store and collected from the database. I also added features such as search functionality and displaying bookmarks to the interactive Mapbox componenet. Lastly, I also worked on the dashboard and the profile pages. 
+As a Data and Visualisation Specialist, I worked on the state management of the application using redux. I also implemented the bookmark functionality, which allowed users to save their favorite fuel stations. I was also able to design API endpoints that allowed the bookmark data to be stored and collected from the database. I also added features such as search functionality and displaying bookmarks to the interactive Mapbox component. Lastly, I also worked on the dashboard and the profile pages.
 
 [Trideep Lal Das](https://github.com/TrideepLD)
 
