@@ -163,7 +163,7 @@ Card Component - Displays the fuel metrics in card container
 Bar Component - The navigation bar
 
 #### [Pin](src/components/Pin.js)
-Pin Component - Represents petrol stations on the map
+Pin Component - Represents bookmarked petrol stations on the map
 
 #### [StationInfoCard](src/components/StationInfoCard.js)
 Card Component - Shows specific petrol station information
