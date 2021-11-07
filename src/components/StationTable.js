@@ -1,47 +1,86 @@
 import React from 'react'
 import {
-  Table,
   Container,
   Row,
-  Col
+  Col,
+  Button
 } from 'react-bootstrap'
+import BootstrapTable from 'react-bootstrap-table-next'
+import paginationFactory from 'react-bootstrap-table2-paginator'
+import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit'
 import { useHistory } from 'react-router-dom'
 
 const Navigation = ({ stations }) => {
+  const { SearchBar } = Search
   const history = useHistory()
-  const handleClick = (e,code) => {
-    e.preventDefault()
-    history.push(`/stations/${code}`)
+
+  const handleClick = (station) => {
+    history.push(`/stations/${station.code}`)
   }
 
-  const listOfStations = stations.map((station) => {
-    return (
-      <tr onClick={(e) => handleClick(e,station.code)} key={station.code}>
-        <td>{station.brand}</td>
-        <td>{station.name}</td>
-        <td>{station.state}</td>
-      </tr>
-    )
-  })
+  const columns = [
+    {
+      dataField: 'code',
+      text: 'Station Code',
+      sort: true
+    },
+    {
+      dataField: 'brand',
+      text: 'Brand',
+      sort: true
+    },
+    {
+      dataField: 'name',
+      text: 'Name',
+      sort: true
+    },
+    {
+      dataField: 'address',
+      text: 'Address'
+    },
+    {
+      dataField: 'actions',
+      text: 'Actions',
+      formatter: (cellContent, station) => (
+        <Button size="sm" onClick={() => handleClick(station)}>
+          View
+        </Button>
+      )
+    },
+  ]
 
   return (
     <>
       <Container className="py-4">
         <Row>
           <Col>
-            <h2 className="fw-bold mb-4">Stations</h2>
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>Brand</th>
-                  <th>Name</th>
-                  <th>State</th>
-                </tr>
-              </thead>
-              <tbody>
-                {listOfStations}
-              </tbody>
-            </Table>
+            <ToolkitProvider
+              bootstrap4={true}
+              keyField='id'
+              data={stations}
+              columns={columns}
+              search
+            >
+              {
+                props => (
+                  <>
+                    <div className="d-flex justify-content-between align-items-center mb-4">
+                      <h2 className="fw-bold">Stations</h2>
+                      <SearchBar {...props.searchProps} srText="" />
+                    </div>
+
+                    <BootstrapTable
+                      wrapperClasses="bg-white p-3 rounded shadow-sm mb-4"
+                      bordered={false}
+                      pagination={paginationFactory({
+                        sizePerPage: 20
+                      })}
+                      {...props.baseProps}
+                    />
+                  </>
+                )
+              }
+            </ToolkitProvider>
           </Col>
         </Row>
       </Container>
