@@ -52,7 +52,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "cross-env NODE_ENV=test jest --detectOpenHandles --verbose --coverage --testPathPattern server",
-    "testreact": "craco test",
+    "testreact": "react-scripts test",
     "eject": "craco eject",
     "dev": "nodemon server/server.js",
     "lint": "eslint ."
