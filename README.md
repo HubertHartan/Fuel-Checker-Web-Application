@@ -228,7 +228,7 @@ As the Backend Specialist, I built out many of the routes in the API server, inc
 
 As a Data and Visualisation Specialist, I worked on the state management of the application using redux. I also implemented the bookmark functionality, which allowed users to save their favorite fuel stations. I was also able to design API endpoints that allowed the bookmark data to be stored and retrieved from the database. I also added a search functionality and displayed bookmarks in the interactive Mapbox component. Lastly, I also worked on the dashboard and the profile pages.
 
-[Trideep Lal Das](https://github.com/TrideepLD)
+[Trideep Lal Das - 45532125](https://github.com/TrideepLD)
 
 As the Testing Specialist, I worked on testing the entirety of the web application. I have created tests for the requests made to the back end. I have also created tests to ensure that front end components are rendered appropriately.
 
