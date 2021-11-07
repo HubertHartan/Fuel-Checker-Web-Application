@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import stationService from '../services/stations'
-import MetricCard from '../components/MetricCard'
-import Bookmark from '../components/Bookmark'
-
 import {
   Container,
   Row,
   Col,
+  Button
 } from 'react-bootstrap'
+import { Map } from 'react-bootstrap-icons'
+
+// Services
+import stationService from '../services/stations'
+
+// Components
+import MetricCard from '../components/MetricCard'
+import Bookmark from '../components/Bookmark'
 
 const StationInfoPage = () => {
   const [station, setStation] = useState()
@@ -24,6 +29,11 @@ const StationInfoPage = () => {
       })
   }, [])
 
+  const getDirections = () => {
+    const directionsLink = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(station.address)}`
+    window.open(directionsLink, '_blank').focus()
+  }
+
   const stationFuelPrices = station?.prices?.map((priceData) => {
     return (
       <Col lg="3" className="mb-3" key={priceData._id}>
@@ -35,15 +45,22 @@ const StationInfoPage = () => {
   return (
     <Container className="py-4">
       <Row>
+        <Col>
+          <h3 className="fw-bold m-0">{station?.name}</h3>
+        </Col>
         <Col md="auto">
-          <div className="d-flex justify-content-between align-items-center mb-3">
-            <h5 className="fw-bold m-0">{station?.name}</h5>
+          <div className="d-flex justify-content-center align-items-center">
+            <Button onClick={() => getDirections()}>
+              <Map className="me-2" />
+              Directions
+            </Button>
             {station && <Bookmark station={station} />}
           </div>
-          <p className="text-muted mb-4">{station?.address}</p>
         </Col>
       </Row>
-
+      <Row>
+        <p className="text-muted mb-4">{station?.address}</p>
+      </Row>
       <Row>
         {stationFuelPrices}
       </Row>
