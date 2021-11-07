@@ -109,6 +109,9 @@ Throughout the development of this project we were able to implement all the fea
 	├                 ├── sass                ├── _variables.scss
     ├                                         └── App.scss
 	├
+	├                 ├── tests               ├── ___snapshots__           ├── app.test.js.snap
+    ├                                         └── app.test.jss
+	├
 	├                 ├── services            ├── price.js
     ├                                         ├── station.tests.js
 	├                                         ├── station.js
