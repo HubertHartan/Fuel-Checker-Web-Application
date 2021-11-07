@@ -140,27 +140,37 @@ Throughout the development of this project we were able to implement all the fea
 ### Custom Components
 
 #### [Bookmark](src/components/Bookmark.js)
+Bookmark Component - Used to save specific petrol stations
 
 #### [FuelDropdown](src/components/FuelDropdown.js)
+Dropdown Component - Used to select specific fuel 
 
 #### [FuelGraph](src/components/FuelGraph.js)
+Graph Component - Used to render and display fuel prices in graph form
 
 #### [MapContainer](src/components/MapContainer.js)
+Container Component - The container for the map
 
 #### [MetricCard](src/components/MetricCard.js)
+Card Component - Displays the fuel metrics in card container
 
 #### [Navigation](src/components/Navigation.js)
+Bar Component - The navigation bar
 
 #### [Pin](src/components/Pin.js)
+Pin Component - Represents petrol stations on the map
 
 #### [StationInfoCard](src/components/StationInfoCard.js)
+Card Component - Shows specific petrol station information
 
 #### [StationList](src/components/StationList.js)
+List Component - 
 
 #### [StationListItem](src/components/StationListItem.js)
+Item Component - 
 
 #### [StationTable](src/components/StationTable.js)
-
+Table Component - Displays the list of stations in table form
 
 
 ### Pages
